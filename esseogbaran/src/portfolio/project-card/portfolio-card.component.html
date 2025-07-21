@@ -1,0 +1,16 @@
+<div class="portfolio-card">
+  <div class="content">
+    <h2>{{ title }}</h2>
+    <p>{{ description }}</p>
+    <div class="tags">
+      <span class="tag" *ngFor="let tag of tags">{{ tag }}</span>
+    </div>
+    <div class="links">
+      @if (githubUrl) {
+      <a [href]="githubUrl" target="_blank">GitHub</a>
+      } @if (liveUrl) {
+      <a [href]="liveUrl" target="_blank">Live Demo</a>
+      }
+    </div>
+  </div>
+</div>

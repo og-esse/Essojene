@@ -1,0 +1,24 @@
+<section [@fadeIn] class="experience-section">
+  <h2 class="section-title">Work Experience</h2>
+
+  @for (job of experiences; track job.role) {
+  <article class="experience-card">
+    <header>
+      <h3 class="job-title">
+        {{ job.role }} <span class="company">&#64; {{ job.company }}</span>
+      </h3>
+      <time class="job-duration">{{ job.duration }}</time>
+    </header>
+
+    <ul class="job-description">
+      @for (line of job.description; track line) {
+      <li>{{ line }}</li>
+      }
+    </ul>
+
+    <p class="tech-stack">
+      <strong>Tech Stack:</strong> {{ job.stack.join(', ') }}
+    </p>
+  </article>
+  }
+</section>

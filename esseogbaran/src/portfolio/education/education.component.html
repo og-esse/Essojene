@@ -1,0 +1,20 @@
+<section class="education-section">
+  <h2>Education</h2>
+  @for (item of education; track item.school) {
+  <div class="education-item">
+    <h3>{{ item.school }}</h3>
+    <p class="duration">{{ item.duration }}</p>
+    @if (item.degree) {
+    <p class="degree">{{ item.degree }}</p>
+    } @if (item.program) {
+    <p class="program">{{ item.program }}</p>
+    } @if (item.achievements) {
+    <ul>
+      @for (achievement of item.achievements; track achievement) {
+      <li>{{ achievement }}</li>
+      }
+    </ul>
+    }
+  </div>
+  }
+</section>

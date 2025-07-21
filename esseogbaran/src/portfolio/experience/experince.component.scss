@@ -1,0 +1,118 @@
+.experience-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a202c; // dark gray text for light mode
+
+  background-color: #f9fafb; // light background
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2d3748;
+  }
+
+  .experience-card {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.75rem;
+
+      .job-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #2c3e50;
+
+        .company {
+          font-weight: 400;
+          color: #718096;
+          margin-left: 0.25rem;
+          font-style: italic;
+        }
+      }
+
+      .job-duration {
+        font-size: 0.875rem;
+        color: #a0aec0;
+        font-style: italic;
+      }
+    }
+
+    .job-description {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #4a5568;
+      line-height: 1.5;
+      font-size: 1rem;
+
+      li {
+        margin-bottom: 0.35rem;
+      }
+    }
+
+    .tech-stack {
+      font-size: 0.9rem;
+      color: #718096;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+/* Dark mode support */
+:host-context(.dark) {
+  .experience-section {
+    background-color: #2d3748;
+    color: #e2e8f0;
+
+    .section-title {
+      color: #edf2f7;
+    }
+
+    .experience-card {
+      border-color: #4a5568;
+
+      header {
+        .job-title {
+          color: #e2e8f0;
+
+          .company {
+            color: #a0aec0;
+          }
+        }
+
+        .job-duration {
+          color: #a0aec0;
+        }
+      }
+
+      .job-description {
+        color: #cbd5e0;
+      }
+
+      .tech-stack {
+        color: #a0aec0;
+      }
+    }
+  }
+}

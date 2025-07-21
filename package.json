@@ -1,0 +1,7 @@
+{
+  "name": "jnwrld-practice-game-monorepo",
+  "private": true,
+  "scripts": {
+    "esse": "npm --prefix esseogbaran run start"
+  }
+}
