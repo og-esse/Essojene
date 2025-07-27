@@ -34,6 +34,20 @@ export class PortfolioSectionComponent {
 
   projects: Project[] = [
     {
+      title: 'JNGYM (Game)',
+      description:
+        'Side-scrolling fitness-themed game built with Phaser + Angular for JNNJ.',
+      link: 'https://jngym.jnclo.com/',
+      tags: ['Angular', 'TypeScript', 'GameDev'],
+    },
+    {
+      title: 'Swag Shooter (Game)',
+      description:
+        'A pixel shooter exploring themes of rebellion and cyber youth.',
+      link: 'https://swagshooter.jnclo.com/',
+      tags: ['Angular', 'TypeScript', 'GameDev'],
+    },
+    {
       title: 'Mortgage Renewal Tool',
       description: 'Boosted renewal conversion rate by 40% for RBC clients.',
       link: '#',
