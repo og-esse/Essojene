@@ -1,13 +1,4 @@
-### Netlify build setup
-[build]
-# Point Netlify at the Angular workspace inside the monorepo
-base = "esseogbaran"
-command = "npm ci && npm run build"
-publish = "dist/my-workspace/browser"
 
-# Use Node 18 (matches Nx/Angular 19 requirements)
-[build.environment]
-NODE_VERSION = "18"
 
 [[redirects]]
   from = "/*"
