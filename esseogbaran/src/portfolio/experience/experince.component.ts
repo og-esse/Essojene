@@ -147,6 +147,10 @@ export class ExperienceSectionComponent {
       school: 'University of Waterloo',
       program: 'Career Accelerator Program: Secure Coding',
       duration: 'Oct 2024 – Feb 2025',
+      achievements: [
+        'Developing secure coding techniques, applying SDLC principles with CodeQL, and engaging in real-world case studies to enhance cybersecurity skills.',
+        'Participating in hands-on labs and industry projects while receiving career coaching to support professional growth.',
+      ],
     },
   ];
 }

@@ -22,3 +22,31 @@
   </article>
   }
 </section>
+
+<section class="experience-section education" [@fadeIn]>
+  <h2 class="section-title">Education</h2>
+
+  @for (edu of education; track edu.school) {
+  <article class="experience-card">
+    <header>
+      <h3 class="job-title">
+        {{ edu.school }}
+        <span class="company">
+          @if (edu.degree) {
+          {{ edu.degree }}
+          } @else if (edu.program) {
+          {{ edu.program }}
+          }
+        </span>
+      </h3>
+      <time class="job-duration">{{ edu.duration }}</time>
+    </header>
+
+    <ul class="job-description">
+      @for (item of edu.achievements; track item) {
+      <li>{{ item }}</li>
+      }
+    </ul>
+  </article>
+  }
+</section>

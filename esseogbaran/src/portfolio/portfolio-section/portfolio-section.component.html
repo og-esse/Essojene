@@ -1,31 +1,64 @@
-<section class="portfolio-wrapper p-8 max-w-5xl mx-auto">
-  <h1 class="text-4xl font-bold mb-6 text-center">My Projects</h1>
-
-  <!-- Filter Buttons -->
-  <div class="filter-bar flex flex-wrap gap-2 justify-center mb-8">
-    @for (tag of tags; track tag) {
-    <button
-      (click)="setFilter(tag)"
-      [ngClass]="{
-        'bg-blue-500 text-white': selectedTag === tag,
-        'bg-gray-100 dark:bg-gray-700 text-black dark:text-white':
-          selectedTag !== tag
-      }"
-      class="px-4 py-2 rounded-full transition"
+<section class="portfolio-wrapper px-6 py-14 max-w-6xl mx-auto">
+  <header class="portfolio-hero text-center mb-12">
+    <span class="pill">Selected Work</span>
+    <h1 class="text-4xl font-bold mt-2 mb-3">Projects</h1>
+    <p class="text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+      A mix of side projects and enterprise work focused on modern web, design
+      systems, and game dev.
+    </p>
+    <div
+      class="mt-4 flex items-center justify-center gap-4 text-xs text-gray-500 dark:text-gray-300"
     >
-      {{ tag }}
-    </button>
-    }
-  </div>
+      <span class="stat-chip">Personal: {{ filteredProjects.length }}</span>
+      <span class="divider" aria-hidden="true"></span>
+      <span class="stat-chip">Work: {{ workProjects.length }}</span>
+    </div>
+  </header>
 
-  <!-- Project Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    @for (project of filteredProjects; track project.title) {
-    <app-project-card
-      [title]="project.title"
-      [description]="project.description"
-      [link]="project.link"
-    ></app-project-card>
-    }
+  <div class="portfolio-columns">
+    <!-- Work / Enterprise Projects (PRIMARY) -->
+    <section class="column column--primary work-block">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Enterprise Impact</p>
+          <h2>Work Highlights</h2>
+          <p class="subtext">
+            Highlights from my time building and modernizing enterprise apps.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-stack">
+        @for (project of workProjects; track project.title) {
+        <app-project-card
+          [title]="project.title"
+          [description]="project.description"
+          [link]="project.link"
+          [tags]="project.tags"
+        ></app-project-card>
+        }
+      </div>
+    </section>
+
+    <!-- Personal / Side Projects (SECONDARY) -->
+    <section class="column">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Indie & Experiments</p>
+          <h2>Personal & Side Projects</h2>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        @for (project of filteredProjects; track project.title) {
+        <app-project-card
+          [title]="project.title"
+          [description]="project.description"
+          [link]="project.link"
+          [tags]="project.tags"
+        ></app-project-card>
+        }
+      </div>
+    </section>
   </div>
 </section>

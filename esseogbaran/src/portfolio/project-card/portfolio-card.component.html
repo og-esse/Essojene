@@ -2,15 +2,27 @@
   <div class="content">
     <h2>{{ title }}</h2>
     <p>{{ description }}</p>
+
+    @if (tags?.length) {
     <div class="tags">
       <span class="tag" *ngFor="let tag of tags">{{ tag }}</span>
     </div>
+    } @if ((link && link !== '#') || githubUrl || liveUrl) {
     <div class="links">
-      @if (githubUrl) {
-      <a [href]="githubUrl" target="_blank">GitHub</a>
+      @if (link && link !== '#') {
+      <a [href]="link" target="_blank" rel="noopener noreferrer">
+        View Project
+      </a>
+      } @if (githubUrl) {
+      <a [href]="githubUrl" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
       } @if (liveUrl) {
-      <a [href]="liveUrl" target="_blank">Live Demo</a>
+      <a [href]="liveUrl" target="_blank" rel="noopener noreferrer">
+        Live Demo
+      </a>
       }
     </div>
+    }
   </div>
 </div>
