@@ -28,11 +28,14 @@
     margin-bottom: 1rem;
   }
 
-  .subtitle {
-    font-size: 1.25rem;
-    color: #555;
-    margin-bottom: 1rem;
-  }
+.subtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 1.25rem;
+  max-width: 640px;
+}
+
 
   /* Recruiter-friendly meta strip */
 .hero-meta {
