@@ -1,0 +1,43 @@
+<div class="assistant-container">
+  <div class="assistant-toolbar">
+    <div class="quick-actions">
+      <button
+        *ngFor="let action of quickActions"
+        type="button"
+        class="quick-action"
+        [disabled]="loading"
+        (click)="useQuickAction(action.prompt)"
+      >
+        {{ action.label }}
+      </button>
+    </div>
+
+    <button
+      type="button"
+      class="escalate-button"
+      [disabled]="loading"
+      (click)="escalateIssue()"
+    >
+      Escalate Issue
+    </button>
+  </div>
+
+  <div class="chat-window">
+    <div *ngFor="let msg of messages" class="message" [ngClass]="msg.role">
+      {{ msg.content }}
+    </div>
+
+    <div *ngIf="loading" class="message assistant">Typing...</div>
+  </div>
+
+  <div class="input-bar">
+    <input
+      [(ngModel)]="input"
+      placeholder="Describe your issue..."
+      (keyup.enter)="sendMessage()"
+    />
+    <button type="button" [disabled]="loading" (click)="sendMessage()">
+      Send
+    </button>
+  </div>
+</div>

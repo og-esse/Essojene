@@ -52,7 +52,7 @@ export class PortfolioSectionComponent {
       title: 'AI Code Review Assistant',
       description:
         'Built a Slack-integrated AI assistant using OpenAI APIs to analyze pull requests, detect code smells, and generate actionable feedback. Implemented prompt-engineered workflows, context-aware analysis, and automated review summaries to reduce manual code review effort.',
-      link: '#',
+      link: '/assistant',
       tags: ['OpenAI API', 'Node.js', 'TypeScript'],
     },
 
