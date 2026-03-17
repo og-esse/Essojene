@@ -14,6 +14,7 @@ export class PortfolioCardComponent {
   @Input() title = '';
   @Input() description = '';
   @Input() tags: string[] = [];
+  @Input() featured = false;
   @Input() imageUrl = '';
   @Input() githubUrl = '';
   @Input() liveUrl = '';

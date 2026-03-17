@@ -1,5 +1,8 @@
-<div class="portfolio-card">
+<div class="portfolio-card" [class.portfolio-card--featured]="featured">
   <div class="content">
+    @if (featured) {
+    <span class="feature-pill">Featured Project</span>
+    }
     <h2>{{ title }}</h2>
     <p>{{ description }}</p>
 
@@ -10,9 +13,14 @@
     } @if (hasProjectLink || githubUrl || liveUrl) {
     <div class="links">
       @if (isInternalLink) {
-      <a [routerLink]="link">View Project</a>
+      <a [routerLink]="link" [class.primary-cta]="featured">View Project</a>
       } @else if (hasProjectLink) {
-      <a [href]="link" target="_blank" rel="noopener noreferrer">
+      <a
+        [href]="link"
+        target="_blank"
+        rel="noopener noreferrer"
+        [class.primary-cta]="featured"
+      >
         View Project
       </a>
       } @if (githubUrl) {

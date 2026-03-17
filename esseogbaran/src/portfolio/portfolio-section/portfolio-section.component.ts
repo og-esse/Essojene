@@ -7,7 +7,9 @@ interface Project {
   title: string;
   description: string;
   link: string;
+  githubUrl?: string;
   tags: string[];
+  featured?: boolean;
 }
 
 @Component({
@@ -34,10 +36,28 @@ export class PortfolioSectionComponent {
 
   projects: Project[] = [
     {
+      title: 'AI Code Review Assistant',
+      description:
+        'Built a Slack-integrated AI assistant using OpenAI APIs to analyze pull requests, detect code smells, and generate actionable feedback. Implemented prompt-engineered workflows, context-aware analysis, and automated review summaries to reduce manual code review effort.',
+      link: '/assistant',
+      githubUrl: 'https://github.com/og-esse/Essojene',
+      tags: ['OpenAI API', 'Node.js', 'TypeScript'],
+      featured: true,
+    },
+    {
+      title: 'CYK2 Lifestyle Blog',
+      description:
+        'Cyber-youth lifestyle blog built with Angular, Stripe, and Supabase. Integrated MailerLite for audience growth and built an anonymous wall where people can share thoughts live, inspired by a lightweight Twitter-style community feed.',
+      link: 'https://cyk2.netlify.app/',
+      githubUrl: 'https://github.com/og-esse/jnwrld-practice-game',
+      tags: ['Angular', 'Stripe', 'Supabase', 'MailerLite'],
+    },
+    {
       title: 'JNGYM (Game)',
       description:
         'Side-scrolling fitness-themed game built with Phaser + Angular for JNNJ.',
       link: 'https://jngym.jnclo.com/',
+      githubUrl: 'https://github.com/og-esse/jnwrld-practice-game',
       tags: ['Angular', 'TypeScript', 'GameDev'],
     },
     {
@@ -45,15 +65,8 @@ export class PortfolioSectionComponent {
       description:
         'A pixel shooter exploring themes of rebellion and cyber youth.',
       link: 'https://punksta.jnclo.com/',
+      githubUrl: 'https://github.com/og-esse/jnwrld-practice-game',
       tags: ['Angular', 'TypeScript', 'GameDev'],
-    },
-
-    {
-      title: 'AI Code Review Assistant',
-      description:
-        'Built a Slack-integrated AI assistant using OpenAI APIs to analyze pull requests, detect code smells, and generate actionable feedback. Implemented prompt-engineered workflows, context-aware analysis, and automated review summaries to reduce manual code review effort.',
-      link: '/assistant',
-      tags: ['OpenAI API', 'Node.js', 'TypeScript'],
     },
 
     {

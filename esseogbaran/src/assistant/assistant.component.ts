@@ -1,6 +1,7 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -15,7 +16,7 @@ interface QuickAction {
 @Component({
   selector: 'app-assistant',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './assistant.component.html',
   styleUrls: ['./assistant.component.scss'],
 })
@@ -23,6 +24,11 @@ export class AssistantComponent {
   input = '';
   loading = false;
   ticketCount = 1042;
+
+  constructor(
+    private readonly location: Location,
+    private readonly router: Router
+  ) {}
 
   quickActions: QuickAction[] = [
     { label: 'VPN', prompt: 'I need help with my VPN connection.' },
@@ -61,6 +67,15 @@ export class AssistantComponent {
 
     this.input = prompt;
     await this.sendMessage();
+  }
+
+  goBack(): void {
+    if (window.history.length > 1) {
+      this.location.back();
+      return;
+    }
+
+    void this.router.navigateByUrl('/');
   }
 
   escalateIssue(): void {

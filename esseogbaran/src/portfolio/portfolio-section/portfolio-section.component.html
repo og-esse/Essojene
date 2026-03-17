@@ -1,29 +1,51 @@
-<section class="portfolio-wrapper px-6 py-14 max-w-6xl mx-auto">
+<section class="portfolio-wrapper px-6 py-10 max-w-6xl mx-auto">
+  <a routerLink="/" class="back-link">← Back Home</a>
   <header class="portfolio-hero text-center mb-12">
-    <span class="pill">Selected Work</span>
-    <h1 class="text-4xl font-bold mt-2 mb-3">Projects</h1>
-    <p class="text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-      A mix of side projects and enterprise work focused on modern web, design
-      systems, and game dev.
-    </p>
-    <div
-      class="mt-4 flex items-center justify-center gap-4 text-xs text-gray-500 dark:text-gray-300"
+    <!-- <p class="hero-kicker">Portfolio</p> -->
+    <h1 class="text-4xl font-bold mt-2 mb-3 text-center">Projects</h1>
+    <p
+      class="hero-copy text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
     >
-      <span class="stat-chip">Personal: {{ filteredProjects.length }}</span>
-      <span class="divider" aria-hidden="true"></span>
-      <span class="stat-chip">Work: {{ workProjects.length }}</span>
-    </div>
+      A curated mix of personal builds and enterprise product work across AI,
+      frontend engineering, design systems, and interactive web experiences.
+    </p>
   </header>
 
   <div class="portfolio-columns">
-    <!-- Work / Enterprise Projects (PRIMARY) -->
-    <section class="column column--primary work-block">
+    <!-- Personal / Side Projects (PRIMARY) -->
+    <section class="column column--primary">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Indie & Experiments</p>
+          <h2>Personal Projects</h2>
+          <p class="subtext">
+            Side projects exploring AI, games, web apps, and creative builds.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-stack">
+        @for (project of filteredProjects; track project.title) {
+        <app-project-card
+          [title]="project.title"
+          [description]="project.description"
+          [link]="project.link"
+          [githubUrl]="project.githubUrl ?? ''"
+          [tags]="project.tags"
+          [featured]="project.featured ?? false"
+        ></app-project-card>
+        }
+      </div>
+    </section>
+
+    <!-- Work / Enterprise Projects (SECONDARY) -->
+    <section class="column">
       <div class="section-heading">
         <div>
           <p class="eyebrow">Enterprise Impact</p>
           <h2>Work Highlights</h2>
           <p class="subtext">
-            Highlights from my time building and modernizing enterprise apps.
+            Highlights from building and modernizing enterprise products.
           </p>
         </div>
       </div>
@@ -34,28 +56,9 @@
           [title]="project.title"
           [description]="project.description"
           [link]="project.link"
+          [githubUrl]="project.githubUrl ?? ''"
           [tags]="project.tags"
-        ></app-project-card>
-        }
-      </div>
-    </section>
-
-    <!-- Personal / Side Projects (SECONDARY) -->
-    <section class="column">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Indie & Experiments</p>
-          <h2>Personal & Side Projects</h2>
-        </div>
-      </div>
-
-      <div class="card-grid">
-        @for (project of filteredProjects; track project.title) {
-        <app-project-card
-          [title]="project.title"
-          [description]="project.description"
-          [link]="project.link"
-          [tags]="project.tags"
+          [featured]="project.featured ?? false"
         ></app-project-card>
         }
       </div>

@@ -1,15 +1,54 @@
 .portfolio-wrapper {
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: linear-gradient(120deg, #2563eb, #9333ea);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+
+  .back-link:hover {
+    filter: brightness(1.05);
+  }
+
   .portfolio-hero {
-    .pill {
+    text-align: center;
+
+    .hero-kicker {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       padding: 0.35rem 0.75rem;
       border-radius: 999px;
-      background: linear-gradient(120deg, #2563eb, #9333ea);
-      color: #fff;
+      background: #eff6ff;
+      color: #1d4ed8;
       font-size: 0.75rem;
-      letter-spacing: 0.02em;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: #0f172a;
+    }
+
+    .hero-copy {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #475569;
     }
 
     .stat-chip {
@@ -32,11 +71,6 @@
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr;
-
-    @media (min-width: 1024px) {
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
-      align-items: flex-start;
-    }
   }
 
   .column {
@@ -103,7 +137,24 @@
 
 :host-context(.dark) {
   .portfolio-wrapper {
+    .back-link {
+      color: #93c5fd;
+    }
+
     .portfolio-hero {
+      .hero-kicker {
+        background: rgba(147, 197, 253, 0.16);
+        color: #bfdbfe;
+      }
+
+      h1 {
+        color: #f8fafc;
+      }
+
+      .hero-copy {
+        color: #cbd5e1;
+      }
+
       .stat-chip {
         background: rgba(255, 255, 255, 0.06);
         color: #e2e8f0;
