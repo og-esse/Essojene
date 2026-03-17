@@ -49,11 +49,13 @@ export class PortfolioSectionComponent {
     },
 
     {
-      title: 'AI Code Review Bot',
-      description: 'Slack-integrated tool using OpenAI to analyze PRs.',
+      title: 'AI Code Review Assistant',
+      description:
+        'Built a Slack-integrated AI assistant using OpenAI APIs to analyze pull requests, detect code smells, and generate actionable feedback. Implemented prompt-engineered workflows, context-aware analysis, and automated review summaries to reduce manual code review effort.',
       link: '#',
       tags: ['OpenAI API', 'Node.js', 'TypeScript'],
     },
+
     {
       title: 'Fashion Tech Hack',
       description: 'Hackathon-winning fashion design app with React + GraphQL.',

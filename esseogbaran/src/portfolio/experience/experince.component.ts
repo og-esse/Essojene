@@ -24,12 +24,12 @@ export class ExperienceSectionComponent {
       company: 'Royal Bank of Canada',
       duration: 'January 2026 – Present',
       description: [
-        'Acting as the primary technical lead for production incidents; engineered custom Splunk dashboards with AI-driven anomaly detection to monitor application health and preemptively resolve issues.',
-        'Built automation guardrails that reduced average triage time by 20%, accelerating root cause analysis and saving engineering hours.',
-        'Architecting a scalable Angular 20 + NGRX platform with resilient state management, accessible UI foundations, and future-proofed module boundaries.',
-        'Orchestrating technical retrospectives for the engineering team, identifying technology gaps and implementing preventative fixes to harden the application against failure.',
-        'Spearheading performance uplift efforts—reducing bundle size, optimizing change detection, and implementing shared data patterns that improve app responsiveness.',
-        'Mentoring developers across multiple RBC journeys on secure coding practices, vulnerability remediation, and root cause analysis.',
+        'Acting as the primary technical lead for production incidents; engineered Splunk dashboards enhanced with anomaly detection models to proactively identify and surface system issues.',
+        'Built intelligent automation guardrails that reduced average triage time by 20%, simulating decision-based workflows similar to self-support systems.',
+        'Architecting a scalable Angular 20 + NGRX platform with resilient state management and modular architecture to support complex, evolving user flows.',
+        'Led system-level retrospectives to identify recurring failure patterns and implemented preventative automation strategies to reduce incident recurrence.',
+        'Optimized application performance through bundle reduction, change detection tuning, and shared data orchestration patterns.',
+        'Mentored engineers on debugging, root cause analysis, and automation-first thinking for scalable system reliability.',
       ],
       stack: [
         'Angular',
