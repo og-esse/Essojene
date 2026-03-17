@@ -86,6 +86,13 @@ export class PortfolioSectionComponent {
 
   workProjects: Project[] = [
     {
+      title: 'Investment Account Discovery Assistant',
+      description:
+        'Built an assisted-discovery experience to help users choose the right investment account type, using prompt-engineering concepts to guide decision-making in a clearer, more personalized flow. Led the frontend delivery for the initiative, earned a promotion during the work, and shipped the project ahead of schedule.',
+      link: '',
+      tags: ['Angular', 'TypeScript', 'Prompt Engineering'],
+    },
+    {
       title: 'Investments Menu Rebuild',
       description:
         'Rebuilt the “Open an Investment Account” journey (TFSA, RRSP, RESP, etc.) in the RBC app, replacing a legacy flow with a streamlined, accessible experience that brought us in line with top competitors like Wealthsimple and increased completion rates from ~30% to ~70% in the first month after launch.',
