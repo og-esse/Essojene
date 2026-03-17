@@ -34,7 +34,10 @@ export class AssistantComponent {
     { label: 'VPN', prompt: 'I need help with my VPN connection.' },
     { label: 'Reset Password', prompt: 'I need to reset my password.' },
     { label: 'Wi-Fi', prompt: 'My Wi-Fi is not working.' },
-    { label: 'MFA', prompt: 'I am having trouble with multi-factor authentication.' },
+    {
+      label: 'MFA',
+      prompt: 'I am having trouble with multi-factor authentication.',
+    },
     { label: 'Who is Esse?', prompt: 'Who is Esse?' },
   ];
 
@@ -42,7 +45,15 @@ export class AssistantComponent {
     {
       role: 'assistant',
       content:
-        'Hi, I’m your AI Support Assistant. How can I help you today? (Try: VPN issue, password reset)',
+        'Hi, I’m your AI Support Assistant. How can I help you today? (Try: Who is Esse?, password reset)',
+    },
+    {
+      role: 'user',
+      content: 'Who is Esse?',
+    },
+    {
+      role: 'assistant',
+      content: this.getEsseIntro(),
     },
   ];
 
@@ -113,16 +124,7 @@ export class AssistantComponent {
       lower.includes('who are you') ||
       lower.includes('about esse')
     ) {
-      return `Esse is the engineer behind this portfolio.
-
-Quick profile:
-1. Frontend engineer with strong Angular, React, and TypeScript experience
-2. Builds polished user experiences, design systems, and practical internal tools
-3. Has enterprise experience at RBC and also ships creative side projects
-4. Likes blending engineering, product thinking, and a bit of experimentation
-
-Fun version:
-Esse is basically equal parts builder, debugger, UI mechanic, and “let me automate that real quick” energy.`;
+      return this.getEsseIntro();
     }
 
     if (lower.includes('vpn') || lower.includes('remote access')) {
@@ -288,5 +290,20 @@ Here are the details that would help me guide you faster:
 4. Whether it affects only you or multiple people
 
 You can also use a quick action above or escalate the issue if it is blocking your work.`;
+  }
+
+  private getEsseIntro(): string {
+    return `Esse is the engineer behind this portfolio.
+
+Quick profile:
+1. Frontend engineer with strong Angular, React, and TypeScript experience
+2. Builds polished user experiences, design systems, and practical internal tools
+3. Has enterprise experience at RBC and also ships creative side projects
+4. Likes blending engineering, product thinking, and a bit of experimentation
+
+Fun version:
+Esse is basically equal parts builder, debugger, UI mechanic, and “let me automate that real quick” energy.
+
+She also loves learning new things and is always up for a new challenge.`;
   }
 }
