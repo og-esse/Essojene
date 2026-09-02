@@ -54,12 +54,12 @@ export class PortfolioSectionComponent {
       ],
     },
     {
-      title: 'AI Code Review Assistant',
+      title: 'AI Support Chatbot',
       description:
-        'Built a Slack-integrated AI assistant using OpenAI APIs to analyze pull requests, detect code smells, and generate actionable feedback. Implemented prompt-engineered workflows, context-aware analysis, and automated review summaries to reduce manual code review effort.',
+        'Angular chatbot for IT support workflows with quick-action troubleshooting, ticket escalation, fallback responses, and a Node/Express backend that connects to the OpenAI API.',
       link: '/assistant',
       githubUrl: 'https://github.com/og-esse/Essojene',
-      tags: ['OpenAI API', 'Node.js', 'TypeScript'],
+      tags: ['OpenAI API', 'Angular', 'Node.js'],
     },
     {
       title: 'CYK2 Lifestyle Blog',
