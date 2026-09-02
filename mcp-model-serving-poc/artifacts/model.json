@@ -1,0 +1,36 @@
+{
+  "model_name": "toy_churn_logistic_regression",
+  "model_version": "1.0.0",
+  "threshold": 0.5,
+  "features": [
+    "tenure_months",
+    "monthly_charges",
+    "support_tickets",
+    "contract_month_to_month",
+    "contract_one_year",
+    "contract_two_year"
+  ],
+  "weights": {
+    "bias": -0.20778768389822325,
+    "tenure_months": -2.5850539802466472,
+    "monthly_charges": 3.8541931527776416,
+    "support_tickets": 3.3102224037089947,
+    "contract_month_to_month": 1.3412998704449473,
+    "contract_one_year": -1.245250061331205,
+    "contract_two_year": -0.3038374930119655
+  },
+  "normalization": {
+    "tenure_months": {
+      "mean": 25.6,
+      "std": 17.79063424014632
+    },
+    "monthly_charges": {
+      "mean": 74.6,
+      "std": 15.19451655477506
+    },
+    "support_tickets": {
+      "mean": 2.6,
+      "std": 1.8184242262647807
+    }
+  }
+}

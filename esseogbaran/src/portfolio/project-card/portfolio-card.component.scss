@@ -72,6 +72,20 @@
       }
     }
 
+    .highlights {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0 0 1rem;
+      padding-left: 1.1rem;
+      color: #334155;
+      font-size: 0.9rem;
+      line-height: 1.45;
+
+      li::marker {
+        color: #2563eb;
+      }
+    }
+
     .links {
       display: flex;
       gap: 12px;
@@ -142,5 +156,15 @@
 
   70% {
     transform: translateY(0) scale(1);
+  }
+}
+
+:host-context(.dark) {
+  .portfolio-card {
+    .content {
+      .highlights {
+        color: #cbd5e1;
+      }
+    }
   }
 }
