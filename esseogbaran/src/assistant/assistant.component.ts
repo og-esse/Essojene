@@ -296,8 +296,8 @@ You can also use a quick action above or escalate the issue if it is blocking yo
     return `Esse is the engineer behind this portfolio.
 
 Quick profile:
-1. Frontend engineer with strong Angular, React, and TypeScript experience
-2. Builds polished user experiences, design systems, and practical internal tools
+1. Full-stack engineer with strong Angular, React, TypeScript, Java/Spring Boot, and API experience
+2. Builds polished user experiences, design systems, backend services, and practical internal tools
 3. Has enterprise experience at RBC and also ships creative side projects
 4. Likes blending engineering, product thinking, and a bit of experimentation
 
