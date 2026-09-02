@@ -1,0 +1,59 @@
+<section class="case-study">
+  <a routerLink="/portfolio" class="back-link">← Back to Projects</a>
+
+  <header class="case-hero">
+    <p class="eyebrow">Featured POC</p>
+    <h1>MCP Model Serving POC</h1>
+    <p>
+      A Python proof of concept that serves a churn-risk model through a
+      versioned FastAPI endpoint and exposes the same prediction contract as an
+      MCP tool.
+    </p>
+
+    <div class="actions">
+      <a
+        href="https://github.com/og-esse/Essojene/tree/main/mcp-model-serving-poc"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View GitHub
+      </a>
+    </div>
+  </header>
+
+  <div class="content-grid">
+    <section>
+      <h2>What I Built</h2>
+      <ul class="check-list">
+        <li *ngFor="let highlight of highlights">{{ highlight }}</li>
+      </ul>
+    </section>
+
+    <aside>
+      <h2>Stack</h2>
+      <div class="tags">
+        <span *ngFor="let item of stack">{{ item }}</span>
+      </div>
+    </aside>
+  </div>
+
+  <section class="architecture">
+    <h2>Architecture</h2>
+    <div class="flow">
+      <span>Training CSV</span>
+      <span>Model Artifact</span>
+      <span>FastAPI /v1</span>
+      <span>MCP Tool</span>
+    </div>
+  </section>
+
+  <section class="proof">
+    <h2>How To Run</h2>
+    <pre><code>cd mcp-model-serving-poc
+pip install -e ".[dev]"
+python -m model_serving_poc.train
+pytest
+uvicorn model_serving_poc.api:app --reload</code></pre>
+  </section>
+</section>
+

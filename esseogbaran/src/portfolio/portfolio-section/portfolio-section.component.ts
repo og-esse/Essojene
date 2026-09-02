@@ -10,6 +10,7 @@ interface Project {
   githubUrl?: string;
   tags: string[];
   featured?: boolean;
+  highlights?: string[];
 }
 
 @Component({
@@ -31,10 +32,27 @@ export class PortfolioSectionComponent {
     'Node.js',
     'GraphQL',
     'Angular',
+    'Python',
+    'MCP',
+    'FastAPI',
     'GameDev',
   ];
 
   projects: Project[] = [
+    {
+      title: 'MCP Model Serving POC',
+      description:
+        'Python proof of concept serving a churn-risk model through a versioned FastAPI endpoint with API-key auth and an MCP predict tool. Includes a local training script, portable model artifact, typed request/response contracts, and a documented Databricks export path.',
+      link: '/projects/mcp-model-serving-poc',
+      githubUrl: 'https://github.com/og-esse/Essojene/tree/main/mcp-model-serving-poc',
+      tags: ['Python', 'MCP', 'FastAPI'],
+      featured: true,
+      highlights: [
+        'Trains and loads a portable churn-risk model artifact',
+        'Exposes a versioned /v1/predict API with API-key auth',
+        'Wraps the same prediction contract as an MCP predict_churn tool',
+      ],
+    },
     {
       title: 'AI Code Review Assistant',
       description:
@@ -42,7 +60,6 @@ export class PortfolioSectionComponent {
       link: '/assistant',
       githubUrl: 'https://github.com/og-esse/Essojene',
       tags: ['OpenAI API', 'Node.js', 'TypeScript'],
-      featured: true,
     },
     {
       title: 'CYK2 Lifestyle Blog',
