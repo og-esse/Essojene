@@ -31,10 +31,15 @@ export class PortfolioSectionComponent {
     'React',
     'Node.js',
     'GraphQL',
+    'REST API',
+    'Spring Boot',
+    'Highcharts',
     'Angular',
     'Python',
     'MCP',
     'FastAPI',
+    'Supabase',
+    'Digital Art',
     'GameDev',
   ];
 
@@ -58,7 +63,7 @@ export class PortfolioSectionComponent {
     {
       title: 'CYK Website',
       description:
-        'Cyber-youth lifestyle blog built with Angular, Stripe, and Supabase. Integrated MailerLite for audience growth and built an anonymous wall where people can share thoughts live, inspired by a lightweight Twitter-style community feed.',
+        'Cyber-youth lifestyle site built with Angular, Stripe, Supabase, MailerLite, Resend, and Node.js. Designed as the main home for CYK content, drops, and community-facing experiments.',
       link: 'https://cyk.life',
       githubUrl: 'https://github.com/og-esse/jnwrld-practice-game',
       tags: [
@@ -67,8 +72,29 @@ export class PortfolioSectionComponent {
         'Supabase',
         'MailerLite',
         'Resend',
-        'Node.JS',
+        'Node.js',
       ],
+    },
+    {
+      title: 'CYK Signal Feed',
+      description:
+        'Anonymous wall where people can share thoughts live, built as a lightweight community feed for CYK with a simple posting flow and real-time social energy.',
+      link: 'https://cyk.life/cyk-signal-feed',
+      tags: ['Angular', 'Supabase', 'TypeScript'],
+    },
+    {
+      title: 'Artist web experience for CYK',
+      description:
+        'Interactive CYK web experience built around fast, expressive browser-based storytelling and experimental digital culture.',
+      link: 'https://s1ordie.cyk.life/',
+      tags: ['Angular', 'TypeScript'],
+    },
+    {
+      title: 'Dollhouse Dress-Up Game',
+      description:
+        'Browser-based dress-up game for CYK. Built the interactive experience and created the visual assets by drawing the graphics in Sketchbook and FireAlpaca.',
+      link: 'https://dollhouse.cyk.life/',
+      tags: ['Angular', 'TypeScript', 'GameDev', 'Digital Art'],
     },
 
     {
@@ -105,6 +131,13 @@ export class PortfolioSectionComponent {
   ];
 
   workProjects: Project[] = [
+    {
+      title: 'Embedded Advice Tax Savings Calculator',
+      description:
+        'Worked front to back on RBC’s Embedded Advice initiative to digitize financial advice inside self-serve investment flows. Built Angular UI, Highcharts visualizations, Spring Boot REST APIs, and integrations across multiple APIs to provide clients with contextual, real-time tax-savings insights for financial decisions.',
+      link: '',
+      tags: ['Angular', 'Spring Boot', 'REST API', 'Highcharts'],
+    },
     {
       title: 'Investment Account Discovery Assistant',
       description:
