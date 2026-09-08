@@ -26,12 +26,12 @@ export class ExperienceSectionComponent {
       duration: 'January 2026 – Present',
       description: [
         'Lead front-end and platform development for the Investments Mega Journey, delivering React/Angular customer journeys and Java/Spring Boot REST APIs for business-critical investment experiences.',
+        'Enabled light and dark mode across the entire Investments Mega Journey on web and mobile, improving visual consistency, accessibility, and user experience across investment flows.',
         'Built front-end flows and service integrations for a tax-savings calculator, connecting UI states, request/response schemas, Java middleware, third-party calculation services, and MongoDB document models.',
         'Identified, troubleshot, and resolved application defects across UI and service layers, implementing retry policies, centralized error handling, and clear failure states for customer-facing journeys.',
         'Considered security in application delivery by securing endpoints with OAuth2/JWT authentication and externalizing secrets through HashiCorp Vault in a regulated banking environment.',
         'Created automated tests with Jest, Cypress, Mockito, WireMock, and JaCoCo, supporting high-quality code, reliable releases, and maintainable test coverage.',
         'Built Splunk dashboards and monitoring views to improve observability, production support, and prioritised defect investigation, reducing manual triaging by 60%.',
-        'Used logs, browser debugging, application health signals, and production dashboards to surface actionable issues and improve supportability of owned applications.',
         'Accelerated delivery timelines by 30 days by applying AI-assisted development workflows for code generation, automated testing, documentation support, and developer tooling.',
         'Mentor engineers through code reviews and team discussions on front-end implementation patterns, API design, accessibility, secure coding, and root-cause analysis.',
       ],
