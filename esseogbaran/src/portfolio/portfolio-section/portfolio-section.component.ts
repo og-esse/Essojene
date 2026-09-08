@@ -44,7 +44,8 @@ export class PortfolioSectionComponent {
       description:
         'Python proof of concept serving a churn-risk model through a versioned FastAPI endpoint with API-key auth and an MCP predict tool. Includes a local training script, portable model artifact, typed request/response contracts, and a documented Databricks export path.',
       link: '/projects/mcp-model-serving-poc',
-      githubUrl: 'https://github.com/og-esse/Essojene/tree/main/mcp-model-serving-poc',
+      githubUrl:
+        'https://github.com/og-esse/Essojene/tree/main/mcp-model-serving-poc',
       tags: ['Python', 'MCP', 'FastAPI'],
       featured: true,
       highlights: [
@@ -53,6 +54,23 @@ export class PortfolioSectionComponent {
         'Wraps the same prediction contract as an MCP predict_churn tool',
       ],
     },
+
+    {
+      title: 'CYK Website',
+      description:
+        'Cyber-youth lifestyle blog built with Angular, Stripe, and Supabase. Integrated MailerLite for audience growth and built an anonymous wall where people can share thoughts live, inspired by a lightweight Twitter-style community feed.',
+      link: 'https://cyk.life',
+      githubUrl: 'https://github.com/og-esse/jnwrld-practice-game',
+      tags: [
+        'Angular',
+        'Stripe',
+        'Supabase',
+        'MailerLite',
+        'Resend',
+        'Node.JS',
+      ],
+    },
+
     {
       title: 'AI Code Review Assistant',
       description:
@@ -60,14 +78,6 @@ export class PortfolioSectionComponent {
       link: '/assistant',
       githubUrl: 'https://github.com/og-esse/Essojene',
       tags: ['OpenAI API', 'Node.js', 'TypeScript'],
-    },
-    {
-      title: 'CYK2 Lifestyle Blog',
-      description:
-        'Cyber-youth lifestyle blog built with Angular, Stripe, and Supabase. Integrated MailerLite for audience growth and built an anonymous wall where people can share thoughts live, inspired by a lightweight Twitter-style community feed.',
-      link: 'https://cyk2.netlify.app/',
-      githubUrl: 'https://github.com/og-esse/jnwrld-practice-game',
-      tags: ['Angular', 'Stripe', 'Supabase', 'MailerLite'],
     },
     {
       title: 'JNGYM (Game)',
@@ -92,13 +102,6 @@ export class PortfolioSectionComponent {
       link: 'https://devpost.com/software/amberx',
       tags: ['React', 'GraphQL'],
     },
-    {
-      title: 'Dev Portfolio Builder',
-      description:
-        'Next.js app to build beautiful portfolios with MDX support.',
-      link: '#',
-      tags: ['Next.js', 'TypeScript'],
-    },
   ];
 
   workProjects: Project[] = [
@@ -107,14 +110,14 @@ export class PortfolioSectionComponent {
       description:
         'Built an assisted-discovery experience to help users choose the right investment account type, using prompt-engineering concepts to guide decision-making in a clearer, more personalized flow. Led the frontend delivery for the initiative, earned a promotion during the work, and shipped the project ahead of schedule.',
       link: '',
-      tags: ['Angular', 'TypeScript', 'Prompt Engineering'],
+      tags: ['Angular', 'TypeScript', 'REST API'],
     },
     {
       title: 'Investments Menu Rebuild',
       description:
         'Rebuilt the “Open an Investment Account” journey (TFSA, RRSP, RESP, etc.) in the RBC app, replacing a legacy flow with a streamlined, accessible experience that brought us in line with top competitors like Wealthsimple and increased completion rates from ~30% to ~70% in the first month after launch.',
       link: '',
-      tags: ['Angular', 'NGRX', 'Design System'],
+      tags: ['Angular', 'Spring Boot', 'Design System'],
     },
     {
       title: 'Sponsor Portal Secondary Credentials',
