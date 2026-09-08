@@ -86,7 +86,7 @@ export class PortfolioSectionComponent {
       title: 'Artist web experience for CYK',
       description:
         'Interactive CYK web experience built around fast, expressive browser-based storytelling and experimental digital culture.',
-      link: 'https://s1ordie.cyk.life/',
+      link: 'https://realdealrebel.cyk.life/',
       tags: ['Angular', 'TypeScript'],
     },
     {
