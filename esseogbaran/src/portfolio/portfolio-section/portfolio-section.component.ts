@@ -31,10 +31,15 @@ export class PortfolioSectionComponent {
     'React',
     'Node.js',
     'GraphQL',
+    'REST API',
+    'Spring Boot',
+    'Highcharts',
     'Angular',
     'Python',
     'MCP',
     'FastAPI',
+    'Supabase',
+    'Digital Art',
     'GameDev',
   ];
 
@@ -44,7 +49,8 @@ export class PortfolioSectionComponent {
       description:
         'Python proof of concept serving a churn-risk model through a versioned FastAPI endpoint with API-key auth and an MCP predict tool. Includes a local training script, portable model artifact, typed request/response contracts, and a documented Databricks export path.',
       link: '/projects/mcp-model-serving-poc',
-      githubUrl: 'https://github.com/og-esse/Essojene/tree/main/mcp-model-serving-poc',
+      githubUrl:
+        'https://github.com/og-esse/Essojene/tree/main/mcp-model-serving-poc',
       tags: ['Python', 'MCP', 'FastAPI'],
       featured: true,
       highlights: [
@@ -53,6 +59,44 @@ export class PortfolioSectionComponent {
         'Wraps the same prediction contract as an MCP predict_churn tool',
       ],
     },
+
+    {
+      title: 'CYK Website',
+      description:
+        'Cyber-youth lifestyle site built with Angular, Stripe, Supabase, MailerLite, Resend, and Node.js. Designed as the main home for CYK content, drops, and community-facing experiments.',
+      link: 'https://cyk.life',
+      githubUrl: 'https://github.com/og-esse/jnwrld-practice-game',
+      tags: [
+        'Angular',
+        'Stripe',
+        'Supabase',
+        'MailerLite',
+        'Resend',
+        'Node.js',
+      ],
+    },
+    {
+      title: 'CYK Signal Feed',
+      description:
+        'Anonymous wall where people can share thoughts live, built as a lightweight community feed for CYK with a simple posting flow and real-time social energy.',
+      link: 'https://cyk.life/cyk-signal-feed',
+      tags: ['Angular', 'Supabase', 'TypeScript'],
+    },
+    {
+      title: 'Artist web experience for CYK',
+      description:
+        'Interactive CYK web experience built around fast, expressive browser-based storytelling and experimental digital culture.',
+      link: 'https://realdealrebel.cyk.life/',
+      tags: ['Angular', 'TypeScript'],
+    },
+    {
+      title: 'Dollhouse Dress-Up Game',
+      description:
+        'Browser-based dress-up game for CYK. Built the interactive experience and created the visual assets by drawing the graphics in Sketchbook and FireAlpaca.',
+      link: 'https://dollhouse.cyk.life/',
+      tags: ['Angular', 'TypeScript', 'GameDev', 'Digital Art'],
+    },
+
     {
       title: 'AI Support Chatbot',
       description:
@@ -60,14 +104,6 @@ export class PortfolioSectionComponent {
       link: '/assistant',
       githubUrl: 'https://github.com/og-esse/Essojene',
       tags: ['OpenAI API', 'Angular', 'Node.js'],
-    },
-    {
-      title: 'CYK2 Lifestyle Blog',
-      description:
-        'Cyber-youth lifestyle blog built with Angular, Stripe, and Supabase. Integrated MailerLite for audience growth and built an anonymous wall where people can share thoughts live, inspired by a lightweight Twitter-style community feed.',
-      link: 'https://cyk2.netlify.app/',
-      githubUrl: 'https://github.com/og-esse/jnwrld-practice-game',
-      tags: ['Angular', 'Stripe', 'Supabase', 'MailerLite'],
     },
     {
       title: 'JNGYM (Game)',
@@ -92,29 +128,29 @@ export class PortfolioSectionComponent {
       link: 'https://devpost.com/software/amberx',
       tags: ['React', 'GraphQL'],
     },
-    {
-      title: 'Dev Portfolio Builder',
-      description:
-        'Next.js app to build beautiful portfolios with MDX support.',
-      link: '#',
-      tags: ['Next.js', 'TypeScript'],
-    },
   ];
 
   workProjects: Project[] = [
+    {
+      title: 'Embedded Advice Tax Savings Calculator',
+      description:
+        'Worked front to back on RBC’s Embedded Advice initiative to digitize financial advice inside self-serve investment flows. Built Angular UI, Highcharts visualizations, Spring Boot REST APIs, and integrations across multiple APIs to provide clients with contextual, real-time tax-savings insights for financial decisions.',
+      link: '',
+      tags: ['Angular', 'Spring Boot', 'REST API', 'Highcharts'],
+    },
     {
       title: 'Investment Account Discovery Assistant',
       description:
         'Built an assisted-discovery experience to help users choose the right investment account type, using prompt-engineering concepts to guide decision-making in a clearer, more personalized flow. Led the frontend delivery for the initiative, earned a promotion during the work, and shipped the project ahead of schedule.',
       link: '',
-      tags: ['Angular', 'TypeScript', 'Prompt Engineering'],
+      tags: ['Angular', 'TypeScript', 'REST API'],
     },
     {
       title: 'Investments Menu Rebuild',
       description:
         'Rebuilt the “Open an Investment Account” journey (TFSA, RRSP, RESP, etc.) in the RBC app, replacing a legacy flow with a streamlined, accessible experience that brought us in line with top competitors like Wealthsimple and increased completion rates from ~30% to ~70% in the first month after launch.',
       link: '',
-      tags: ['Angular', 'NGRX', 'Design System'],
+      tags: ['Angular', 'Spring Boot', 'Design System'],
     },
     {
       title: 'Sponsor Portal Secondary Credentials',
