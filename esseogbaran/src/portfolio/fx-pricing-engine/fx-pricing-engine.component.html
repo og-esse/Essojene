@@ -1,0 +1,78 @@
+<section class="case-study">
+  <a routerLink="/portfolio" class="back-link">← Back to Projects</a>
+
+  <header class="case-hero">
+    <p class="eyebrow">Featured Quant POC</p>
+    <h1>Automated FX Pricing Engine</h1>
+    <p>
+      A Python proof of concept that recommends an FX quote by combining
+      fill-probability modeling, market features, and expected-P&L optimization.
+    </p>
+
+    <div class="actions">
+      <a
+        href="https://github.com/og-esse/Essojene/tree/main/automated-fx-pricing-engine"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View GitHub
+      </a>
+    </div>
+  </header>
+
+  <div class="content-grid">
+    <section>
+      <h2>What I Built</h2>
+      <ul class="check-list">
+        <li *ngFor="let highlight of highlights">{{ highlight }}</li>
+      </ul>
+    </section>
+
+    <aside>
+      <h2>Stack</h2>
+      <div class="tags">
+        <span *ngFor="let item of stack">{{ item }}</span>
+      </div>
+    </aside>
+  </div>
+
+  <section class="architecture">
+    <h2>Pricing Flow</h2>
+    <div class="flow">
+      <span>RFQ Inputs</span>
+      <span>Fill Model</span>
+      <span>Spread Search</span>
+      <span>Best Quote</span>
+    </div>
+  </section>
+
+  <section class="quote-table">
+    <h2>Optimization Output</h2>
+    <div class="table-shell">
+      <table>
+        <thead>
+          <tr>
+            <th>Quote Spread</th>
+            <th>Fill Probability</th>
+            <th>Expected P&L</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of sampleRows">
+            <td>{{ row.spread }}</td>
+            <td>{{ row.fill }}</td>
+            <td>{{ row.pnl }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="proof">
+    <h2>How To Run</h2>
+    <pre><code>cd automated-fx-pricing-engine
+pip install -e ".[dev]"
+pytest
+uvicorn fx_pricing_engine.api:app --reload</code></pre>
+  </section>
+</section>

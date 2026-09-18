@@ -36,6 +36,9 @@ export class PortfolioSectionComponent {
     'Highcharts',
     'Angular',
     'Python',
+    'Quant',
+    'ML',
+    'Optimization',
     'MCP',
     'FastAPI',
     'Supabase',
@@ -44,6 +47,21 @@ export class PortfolioSectionComponent {
   ];
 
   projects: Project[] = [
+    {
+      title: 'Automated FX Pricing Engine',
+      description:
+        'Python proof of concept for an electronic FX desk that predicts quote acceptance, searches candidate spreads, and recommends the bid/ask quote that maximizes expected P&L under market and client conditions.',
+      link: '/projects/automated-fx-pricing-engine',
+      githubUrl:
+        'https://github.com/og-esse/Essojene/tree/main/automated-fx-pricing-engine',
+      tags: ['Python', 'Quant', 'ML', 'FastAPI', 'Optimization'],
+      featured: true,
+      highlights: [
+        'Models fill probability from spread, size, volatility, liquidity, and client tier',
+        'Optimizes bid/ask quote selection against expected P&L',
+        'Serves recommendations through a versioned /v1/quote API',
+      ],
+    },
     {
       title: 'MCP Model Serving POC',
       description:
