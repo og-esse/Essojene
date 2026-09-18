@@ -41,6 +41,10 @@ export class PortfolioSectionComponent {
     'Supabase',
     'Digital Art',
     'GameDev',
+    'Webflow',
+    'Automation',
+    'Analytics',
+    'Data Operations',
   ];
 
   projects: Project[] = [
@@ -61,9 +65,21 @@ export class PortfolioSectionComponent {
     },
 
     {
+      title: 'NWRLD Digital Platform',
+      description:
+        'Responsive digital platform work for NWRLD focused on reliable content delivery, brand consistency, analytics visibility, and low-friction operational updates across web properties.',
+      link: '',
+      tags: ['Webflow', 'JavaScript', 'Analytics', 'Automation'],
+      highlights: [
+        'Maintained responsive pages and CMS-driven content workflows for scalable updates',
+        'Improved performance, SEO structure, accessibility, and cross-device stability',
+        'Documented repeatable fixes and deployment handoffs to reduce manual support needs',
+      ],
+    },
+    {
       title: 'CYK Website',
       description:
-        'Cyber-youth lifestyle site built with Angular, Stripe, Supabase, MailerLite, Resend, and Node.js. Designed as the main home for CYK content, drops, and community-facing experiments.',
+        'Cyber-youth lifestyle platform built with Angular, Stripe, Supabase, MailerLite, Resend, and Node.js. Designed as the main home for CYK content, drops, community workflows, and operational reporting.',
       link: 'https://cyk.life',
       githubUrl: 'https://github.com/og-esse/jnwrld-practice-game',
       tags: [
@@ -73,6 +89,12 @@ export class PortfolioSectionComponent {
         'MailerLite',
         'Resend',
         'Node.js',
+        'Data Operations',
+      ],
+      highlights: [
+        'Managed deployments, integrations, forms, email flows, and analytics tracking',
+        'Supported data integrity across CMS content, subscriber data, and reporting workflows',
+        'Improved reliability through issue triage, documentation, and reusable platform patterns',
       ],
     },
     {
@@ -80,7 +102,11 @@ export class PortfolioSectionComponent {
       description:
         'Anonymous wall where people can share thoughts live, built as a lightweight community feed for CYK with a simple posting flow and real-time social energy.',
       link: 'https://cyk.life/cyk-signal-feed',
-      tags: ['Angular', 'Supabase', 'TypeScript'],
+      tags: ['Angular', 'Supabase', 'TypeScript', 'Data Operations'],
+      highlights: [
+        'Built real-time Supabase-backed posting workflows with stable client-side state handling',
+        'Maintained lightweight moderation and data structure patterns for cleaner operations',
+      ],
     },
     {
       title: 'Artist web experience for CYK',
@@ -88,6 +114,10 @@ export class PortfolioSectionComponent {
         'Interactive CYK web experience built around fast, expressive browser-based storytelling and experimental digital culture.',
       link: 'https://realdealrebel.cyk.life/',
       tags: ['Angular', 'TypeScript'],
+      highlights: [
+        'Delivered a responsive interactive experience with consistent styling across devices',
+        'Optimized the frontend for fast loading and low-maintenance content updates',
+      ],
     },
     {
       title: 'Dollhouse Dress-Up Game',
@@ -95,6 +125,10 @@ export class PortfolioSectionComponent {
         'Browser-based dress-up game for CYK. Built the interactive experience and created the visual assets by drawing the graphics in Sketchbook and FireAlpaca.',
       link: 'https://dollhouse.cyk.life/',
       tags: ['Angular', 'TypeScript', 'GameDev', 'Digital Art'],
+      highlights: [
+        'Built a browser-based interactive game with reusable UI and asset-loading patterns',
+        'Optimized visual assets and client-side behavior for smoother web performance',
+      ],
     },
 
     {

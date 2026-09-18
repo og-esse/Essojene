@@ -54,6 +54,32 @@ export class ExperienceSectionComponent {
     },
 
     {
+      role: 'Web & Data Operations Developer',
+      company: 'NWRLD / CYK.LIFE',
+      duration: '2023 – Present',
+      description: [
+        'Maintained and optimized high-performance websites and digital platforms, improving reliability, uptime, responsiveness, and cross-device stability.',
+        'Monitored site performance, resolved production issues, and supported troubleshooting across deployments, integrations, forms, analytics, and CMS-driven workflows.',
+        'Managed website deployments, analytics tracking, and dashboard refresh workflows to ensure accurate reporting and stable business operations.',
+        'Improved operational efficiency by documenting recurring issues, standardizing fixes, and reducing manual maintenance through automation-focused workflows.',
+        'Collaborated with design, marketing, analytics, and business stakeholders to maintain data quality, privacy-conscious tracking, accessibility, and performance standards.',
+        'Used CMS structures, JavaScript, APIs, analytics dashboards, and Git-based workflows to support scalable web operations and reduce manual support needs.',
+      ],
+      stack: [
+        'Angular',
+        'TypeScript',
+        'JavaScript',
+        'Webflow',
+        'Supabase',
+        'Node.js',
+        'Analytics',
+        'Git',
+        'SEO',
+        'Accessibility',
+      ],
+    },
+
+    {
       role: 'Frontend Developer – Investments Mobile',
       company: 'Royal Bank of Canada',
       duration: 'July 2025 – December 2025',
