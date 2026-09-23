@@ -53,6 +53,19 @@ button { cursor: pointer; }
 .brand div { display: grid; gap: 2px; }
 .brand strong { font-size: 14px; }
 .brand div span { color: var(--muted); font-size: 11px; }
+.topbar-actions { display: flex; align-items: center; gap: 14px; }
+.repo-link {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  font: 500 10px var(--mono);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.repo-link:hover { border-color: var(--lime-dim); color: var(--lime); }
 .desk-status { display: flex; align-items: center; gap: 9px; color: var(--muted); font: 11px var(--mono); }
 .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 8px rgba(184, 242, 74, .45); }
 .status-dot.error { background: var(--red); box-shadow: none; }
@@ -185,6 +198,8 @@ td { padding: 12px; border-bottom: 1px solid #202521; text-align: right; white-s
 @media (max-width: 680px) {
   html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
   .topbar { height: 58px; padding: 0 16px; }
+  .topbar-actions { gap: 10px; }
+  .repo-link { height: 26px; padding: 0 8px; }
   .brand div span, .divider, #clock, #market-status { display: none; }
   .workspace { display: block; }
   .ticket-panel { width: 100%; max-width: 100%; overflow: hidden; border-right: 0; border-bottom: 1px solid var(--line); }

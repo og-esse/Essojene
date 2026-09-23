@@ -53,7 +53,7 @@ export class PortfolioSectionComponent {
         'Python proof of concept for an electronic FX desk that predicts quote acceptance, searches candidate spreads, and recommends the bid/ask quote that maximizes expected P&L under market and client conditions.',
       link: '/projects/automated-fx-pricing-engine',
       githubUrl:
-        'https://github.com/og-esse/Essojene/tree/main/automated-fx-pricing-engine',
+        'https://github.com/og-esse/Essojene/tree/london/automated-fx-pricing-engine',
       tags: ['Python', 'Quant', 'ML', 'FastAPI', 'Optimization'],
       featured: true,
       highlights: [
