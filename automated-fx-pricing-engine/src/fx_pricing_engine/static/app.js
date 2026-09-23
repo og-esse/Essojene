@@ -7,6 +7,14 @@ let latestCandidates = [];
 let recommendedSpread = null;
 let quoteNumber = 1;
 let history = [];
+const overrideReasons = [
+  ["client_relationship", "Client relationship"],
+  ["competitive_pricing", "Competitive pricing"],
+  ["market_movement", "Market movement"],
+  ["inventory_or_risk_constraint", "Inventory or risk constraint"],
+  ["low_model_confidence", "Low model confidence"],
+  ["other", "Other"]
+];
 
 const el = (id) => document.getElementById(id);
 const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 });
@@ -80,23 +88,41 @@ function updateResult(result, request) {
 
 function addHistory(result, request) {
   history.unshift({
+    quoteId: result.quote_id,
     time: new Intl.DateTimeFormat("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }).format(new Date()),
     pair: result.currency_pair,
     side: request.side,
     notional: request.notional_millions,
     spread: result.spread_pips,
     fill: result.fill_probability,
-    pnl: result.expected_pnl_usd
+    pnl: result.expected_pnl_usd,
+    decision: "pending"
   });
   history = history.slice(0, 8);
+  renderHistory();
+  quoteNumber += 1;
+  el("ticket-id").textContent = `RFQ-${String(quoteNumber).padStart(4, "0")}`;
+}
+
+function renderHistory() {
+  if (!history.length) {
+    historyBody.innerHTML = '<tr class="empty-row"><td colspan="9">Run the model to start this session\'s quote history.</td></tr>';
+    return;
+  }
   historyBody.innerHTML = history.map(item => `
     <tr>
       <td>${item.time}</td><td>${item.pair}</td><td class="history-${item.side}">${item.side.toUpperCase()}</td>
       <td>$${item.notional.toFixed(1)}MM</td><td>${item.spread.toFixed(1)} pips</td>
       <td>${(item.fill * 100).toFixed(1)}%</td><td class="history-pnl">${money.format(item.pnl)}</td>
+      <td><span class="decision-pill ${item.decision}">${item.decision.toUpperCase()}</span></td>
+      <td>
+        <div class="quote-actions">
+          <button type="button" data-action="accepted" data-quote-id="${item.quoteId}" ${item.decision !== "pending" ? "disabled" : ""}>Accepted</button>
+          <button type="button" data-action="rejected" data-quote-id="${item.quoteId}" ${item.decision !== "pending" ? "disabled" : ""}>Rejected</button>
+          <button type="button" data-action="override" data-quote-id="${item.quoteId}" ${item.decision !== "pending" ? "disabled" : ""}>Override</button>
+        </div>
+      </td>
     </tr>`).join("");
-  quoteNumber += 1;
-  el("ticket-id").textContent = `RFQ-${String(quoteNumber).padStart(4, "0")}`;
 }
 
 function chartGeometry() {
@@ -194,11 +220,12 @@ form.addEventListener("submit", async event => {
   const request = requestPayload();
   setLoading(true);
   try {
-    const response = await fetch("/v1/quote", {
+    const response = await fetch("/v1/quotes", {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(request)
     });
     if (!response.ok) throw new Error(`Pricing service returned ${response.status}`);
     updateResult(await response.json(), request);
+    refreshFeedbackSummary();
   } catch (error) {
     showError(`${error.message}. Check that the pricing service is running.`);
   } finally {
@@ -212,9 +239,107 @@ el("reset-market").addEventListener("click", () => {
 });
 el("clear-history").addEventListener("click", () => {
   history = [];
-  historyBody.innerHTML = '<tr class="empty-row"><td colspan="7">Run the model to start this session\'s quote history.</td></tr>';
+  renderHistory();
 });
 window.addEventListener("resize", drawChart);
+
+function formatRate(rate) {
+  return `${((rate || 0) * 100).toFixed(1)}%`;
+}
+
+function formatSpread(value) {
+  return value === null || value === undefined ? "--" : `${Number(value).toFixed(2)} pips`;
+}
+
+function renderBreakdown(rows, key, targetId) {
+  const target = el(targetId);
+  if (!rows.length) {
+    target.innerHTML = '<li><span>No decisions yet</span><strong>--</strong></li>';
+    return;
+  }
+  target.innerHTML = rows.slice(0, 4).map(row => `
+    <li>
+      <span>${key === "client_tier" ? `Tier ${row[key]}` : row[key]}</span>
+      <strong>${formatRate(row.acceptance_rate)} accepted</strong>
+    </li>
+  `).join("");
+}
+
+function renderOverrideReasons(rows) {
+  const target = el("override-reasons");
+  if (!rows.length) {
+    target.innerHTML = '<li><span>No overrides yet</span><strong>--</strong></li>';
+    return;
+  }
+  const labels = Object.fromEntries(overrideReasons);
+  target.innerHTML = rows.slice(0, 4).map(row => `
+    <li><span>${labels[row.reason] || row.reason}</span><strong>${row.count}</strong></li>
+  `).join("");
+}
+
+async function refreshFeedbackSummary() {
+  try {
+    const response = await fetch("/v1/feedback/summary");
+    if (!response.ok) throw new Error("Unable to load feedback summary");
+    const summary = await response.json();
+    el("summary-quotes").textContent = summary.quote_count;
+    el("summary-decisions").textContent = summary.decision_count;
+    el("summary-acceptance").textContent = formatRate(summary.acceptance_rate);
+    el("summary-overrides").textContent = formatRate(summary.override_rate);
+    el("summary-recommended-spread").textContent = formatSpread(summary.average_recommended_spread_pips);
+    el("summary-final-spread").textContent = formatSpread(summary.average_final_spread_pips);
+    renderBreakdown(summary.by_client_tier, "client_tier", "tier-breakdown");
+    renderBreakdown(summary.by_currency_pair, "currency_pair", "pair-breakdown");
+    renderBreakdown(summary.by_model_version, "model_version", "model-breakdown");
+    renderOverrideReasons(summary.override_reasons);
+  } catch (error) {
+    showError(error.message);
+  }
+}
+
+function overrideDecisionPayload(item) {
+  const spread = Number(window.prompt("Final spread in pips", item.spread.toFixed(1)));
+  if (!Number.isFinite(spread) || spread < 0) {
+    showError("Override cancelled: enter a valid final spread.");
+    return null;
+  }
+  const reasonMenu = overrideReasons.map(([value, label], index) => `${index + 1}. ${label} (${value})`).join("\n");
+  const choice = window.prompt(`Override reason:\n${reasonMenu}`, "competitive_pricing");
+  if (!choice) return null;
+  const selected = overrideReasons[Number(choice) - 1]?.[0] || choice.trim();
+  if (!overrideReasons.some(([value]) => value === selected)) {
+    showError("Override cancelled: choose a valid reason.");
+    return null;
+  }
+  return { outcome: "override", final_spread_pips: spread, override_reason: selected };
+}
+
+async function recordDecision(quoteId, action) {
+  const item = history.find(entry => entry.quoteId === quoteId);
+  if (!item || item.decision !== "pending") return;
+  const payload = action === "override"
+    ? overrideDecisionPayload(item)
+    : { outcome: action, final_spread_pips: action === "accepted" ? item.spread : null };
+  if (!payload) return;
+
+  try {
+    const response = await fetch(`/v1/quotes/${quoteId}/outcome`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`Decision service returned ${response.status}`);
+    item.decision = action;
+    renderHistory();
+    refreshFeedbackSummary();
+  } catch (error) {
+    showError(error.message);
+  }
+}
+
+historyBody.addEventListener("click", event => {
+  const button = event.target.closest("button[data-action]");
+  if (!button) return;
+  recordDecision(button.dataset.quoteId, button.dataset.action);
+});
 
 async function initialize() {
   updateClock(); setInterval(updateClock, 1000); syncRangeOutputs();
@@ -223,6 +348,7 @@ async function initialize() {
     if (!response.ok) throw new Error();
     const health = await response.json();
     el("model-version").textContent = `${health.model_name} / ${health.model_version}`;
+    refreshFeedbackSummary();
     form.requestSubmit();
   } catch {
     document.querySelector(".status-dot").classList.add("error");

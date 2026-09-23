@@ -168,6 +168,21 @@ input[type="range"]::-webkit-slider-thumb { width: 14px; height: 14px; appearanc
 #curve-chart { width: 100%; height: 100%; }
 .chart-tooltip { position: absolute; z-index: 2; pointer-events: none; padding: 8px 10px; border: 1px solid var(--line); border-radius: 3px; background: #171b18; box-shadow: 0 8px 24px rgba(0, 0, 0, .35); font: 10px/1.7 var(--mono); white-space: nowrap; }
 
+.feedback-section { padding: 24px 0 20px; border-bottom: 1px solid var(--line); }
+.feedback-heading { align-items: flex-end; margin-bottom: 14px; }
+.feedback-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); }
+.feedback-card { min-width: 0; padding: 15px; border-right: 1px solid var(--line); background: #111511; }
+.feedback-card:last-child { border-right: 0; }
+.feedback-card span { color: var(--muted); font: 9px var(--mono); text-transform: uppercase; }
+.feedback-card strong { display: block; margin-top: 8px; font: 500 21px var(--mono); }
+.feedback-card small { display: block; min-height: 13px; margin-top: 7px; color: var(--muted); font: 10px var(--mono); }
+.feedback-lists { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
+.feedback-lists h3 { margin: 0 0 8px; color: #aeb6b0; font-size: 11px; text-transform: uppercase; }
+.feedback-lists ul { display: grid; gap: 7px; min-width: 0; margin: 0; padding: 0; list-style: none; }
+.feedback-lists li { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; color: var(--muted); font: 10px var(--mono); }
+.feedback-lists li span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.feedback-lists li strong { color: var(--text); font-weight: 500; white-space: nowrap; }
+
 .blotter-section { padding-top: 22px; }
 .blotter-heading { align-items: flex-end; margin-bottom: 12px; }
 .table-wrap { overflow-x: auto; }
@@ -179,6 +194,14 @@ td { padding: 12px; border-bottom: 1px solid #202521; text-align: right; white-s
 .history-pnl { color: var(--lime); }
 .history-buy { color: var(--cyan); }
 .history-sell { color: var(--red); }
+.decision-pill { display: inline-grid; place-items: center; min-width: 68px; height: 20px; padding: 0 7px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); font: 500 9px var(--mono); }
+.decision-pill.accepted { border-color: rgba(94, 212, 198, .35); color: var(--cyan); }
+.decision-pill.rejected { border-color: rgba(255, 120, 109, .35); color: var(--red); }
+.decision-pill.override { border-color: rgba(233, 185, 73, .42); color: var(--amber); }
+.quote-actions { display: inline-flex; justify-content: flex-end; gap: 6px; }
+.quote-actions button { min-width: 58px; height: 25px; padding: 0 7px; border: 1px solid #343b36; border-radius: 3px; background: #101310; color: var(--text); font: 500 9px var(--mono); }
+.quote-actions button:hover:not(:disabled) { border-color: var(--lime-dim); color: var(--lime); }
+.quote-actions button:disabled { cursor: default; opacity: .38; }
 .toast { position: fixed; right: 22px; bottom: 22px; max-width: 340px; padding: 12px 14px; border: 1px solid rgba(255, 120, 109, .4); border-radius: 4px; background: #281715; color: #ffc0bb; box-shadow: 0 10px 30px rgba(0,0,0,.35); font-size: 12px; }
 
 @media (max-width: 900px) {
@@ -193,6 +216,10 @@ td { padding: 12px; border-bottom: 1px solid #202521; text-align: right; white-s
   .metrics-grid { grid-template-columns: 1fr; }
   .metric, .metric + .metric { padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--line); }
   .metric:last-child { border-bottom: 0; }
+  .feedback-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feedback-card:nth-child(2) { border-right: 0; }
+  .feedback-card:nth-child(-n + 2) { border-bottom: 1px solid var(--line); }
+  .feedback-lists { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 680px) {
@@ -214,6 +241,10 @@ td { padding: 12px; border-bottom: 1px solid #202521; text-align: right; white-s
   .spread-block strong { font-size: 28px; }
   .chart-heading { align-items: flex-start; flex-direction: column; }
   .chart-wrap { height: 210px; }
+  .feedback-heading { align-items: flex-start; flex-direction: column; }
+  .feedback-grid, .feedback-lists { grid-template-columns: 1fr; }
+  .feedback-card { border-right: 0; border-bottom: 1px solid var(--line); }
+  .feedback-card:last-child { border-bottom: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

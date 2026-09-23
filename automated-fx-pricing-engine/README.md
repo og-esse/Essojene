@@ -66,6 +66,44 @@ Inspect the deployed model's evaluation report:
 curl http://127.0.0.1:8000/v1/model/metrics
 ```
 
+## Quote Decision Feedback
+
+The workstation now records model-generated quotes and trader decisions in a local
+SQLite audit trail. By default the database is written to
+`/tmp/fx_quote_feedback.sqlite3`; set `FX_FEEDBACK_DB` to point at a different
+SQLite file for local development.
+
+```bash
+curl -X POST http://127.0.0.1:8000/v1/quotes \
+  -H "content-type: application/json" \
+  -d '{
+    "currency_pair": "EUR/USD",
+    "side": "buy",
+    "notional_millions": 5,
+    "volatility_bps": 3,
+    "liquidity_score": 0.85,
+    "order_book_imbalance": 0.05,
+    "client_tier": 1,
+    "validity_seconds": 60
+  }'
+
+curl -X POST http://127.0.0.1:8000/v1/quotes/{quote_id}/outcome \
+  -H "content-type: application/json" \
+  -d '{
+    "outcome": "override",
+    "final_spread_pips": 1.6,
+    "override_reason": "competitive_pricing"
+  }'
+
+curl http://127.0.0.1:8000/v1/feedback/summary
+```
+
+Outcome events are append-only so changed decisions leave an audit trail. The
+dashboard reports acceptance, override, spread-comparison, client-tier,
+currency-pair, model-version, and override-reason metrics. It intentionally
+reports expected P&L only; realized P&L should be added later when post-trade
+market data is available.
+
 ## Train the Model
 
 Reproduce the packaged model and metrics with a deterministic 50,000-RFQ synthetic

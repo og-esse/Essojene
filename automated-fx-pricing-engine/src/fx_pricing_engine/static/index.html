@@ -189,6 +189,59 @@
           </div>
         </section>
 
+        <section class="feedback-section">
+          <div class="section-heading feedback-heading">
+            <div>
+              <span class="eyebrow">Decision feedback</span>
+              <h2>Adoption dashboard</h2>
+            </div>
+            <div class="model-meta">
+              <span>MEASURE</span>
+              <strong>Expected P&amp;L only</strong>
+            </div>
+          </div>
+          <div class="feedback-grid">
+            <article class="feedback-card">
+              <span>Quotes</span>
+              <strong id="summary-quotes">0</strong>
+              <small id="summary-decisions">0 decisions</small>
+            </article>
+            <article class="feedback-card">
+              <span>Acceptance</span>
+              <strong id="summary-acceptance">0.0%</strong>
+              <small>latest decision per quote</small>
+            </article>
+            <article class="feedback-card">
+              <span>Overrides</span>
+              <strong id="summary-overrides">0.0%</strong>
+              <small>trader changed model spread</small>
+            </article>
+            <article class="feedback-card">
+              <span>Spread comparison</span>
+              <strong id="summary-recommended-spread">--</strong>
+              <small>final avg <span id="summary-final-spread">--</span></small>
+            </article>
+          </div>
+          <div class="feedback-lists">
+            <div>
+              <h3>Client tier</h3>
+              <ul id="tier-breakdown"></ul>
+            </div>
+            <div>
+              <h3>Currency pair</h3>
+              <ul id="pair-breakdown"></ul>
+            </div>
+            <div>
+              <h3>Model version</h3>
+              <ul id="model-breakdown"></ul>
+            </div>
+            <div>
+              <h3>Override reasons</h3>
+              <ul id="override-reasons"></ul>
+            </div>
+          </div>
+        </section>
+
         <section class="blotter-section">
           <div class="section-heading blotter-heading">
             <div>
@@ -199,9 +252,9 @@
           </div>
           <div class="table-wrap">
             <table>
-              <thead><tr><th>Time</th><th>Pair</th><th>Side</th><th>Notional</th><th>Spread</th><th>Fill prob.</th><th>Exp. P&amp;L</th></tr></thead>
+              <thead><tr><th>Time</th><th>Pair</th><th>Side</th><th>Notional</th><th>Spread</th><th>Fill prob.</th><th>Exp. P&amp;L</th><th>Decision</th><th>Actions</th></tr></thead>
               <tbody id="quote-history">
-                <tr class="empty-row"><td colspan="7">Run the model to start this session's quote history.</td></tr>
+                <tr class="empty-row"><td colspan="9">Run the model to start this session's quote history.</td></tr>
               </tbody>
             </table>
           </div>
