@@ -9,9 +9,15 @@ description = "FX quote optimization POC with fill-probability and expected-P&L 
 requires-python = ">=3.9"
 dependencies = [
   "fastapi>=0.110.0",
+  "joblib>=1.3.0",
+  "numpy>=1.23.5,<3.0",
   "pydantic>=2.0.0",
+  "scikit-learn==1.6.1",
   "uvicorn>=0.27.0",
 ]
+
+[project.scripts]
+train-fx-model = "fx_pricing_engine.training:main"
 
 [project.optional-dependencies]
 dev = [
@@ -22,7 +28,7 @@ dev = [
 where = ["src"]
 
 [tool.setuptools.package-data]
-fx_pricing_engine = ["artifacts/*.json", "static/*"]
+fx_pricing_engine = ["artifacts/*.joblib", "artifacts/*.json", "static/*"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

@@ -1,0 +1,75 @@
+{
+  "model_name": "synthetic_fx_hist_gradient_boosting",
+  "model_version": "2026.09-trained-v1",
+  "selected_model": "hist_gradient_boosting",
+  "training_samples": 50000,
+  "train_samples": 35000,
+  "validation_samples": 7500,
+  "test_samples": 7500,
+  "random_seed": 42,
+  "data_source": "synthetic RFQ generator",
+  "feature_names": [
+    "spread_pips",
+    "log_notional_millions",
+    "volatility_bps",
+    "liquidity_score",
+    "order_book_imbalance",
+    "log_validity_seconds",
+    "side_buy",
+    "client_tier_1",
+    "client_tier_2",
+    "pair_eur_usd",
+    "pair_gbp_usd"
+  ],
+  "base_mid_by_pair": {
+    "EUR/USD": 1.1724,
+    "USD/CAD": 1.3815,
+    "GBP/USD": 1.3472
+  },
+  "validation_metrics": {
+    "logistic_regression": {
+      "roc_auc": 0.7831,
+      "log_loss": 0.5349,
+      "brier_score": 0.1789,
+      "expected_calibration_error": 0.0081
+    },
+    "hist_gradient_boosting": {
+      "roc_auc": 0.786,
+      "log_loss": 0.5318,
+      "brier_score": 0.1777,
+      "expected_calibration_error": 0.0066
+    }
+  },
+  "test_metrics": {
+    "logistic_regression": {
+      "roc_auc": 0.7879,
+      "log_loss": 0.529,
+      "brier_score": 0.1769,
+      "expected_calibration_error": 0.0095
+    },
+    "hist_gradient_boosting": {
+      "roc_auc": 0.7893,
+      "log_loss": 0.5274,
+      "brier_score": 0.1763,
+      "expected_calibration_error": 0.0126
+    }
+  },
+  "backtest": {
+    "fixed_1_pip": {
+      "mean_expected_pnl_usd": 232.81,
+      "mean_fill_probability": 0.8251,
+      "mean_spread_pips": 1.0
+    },
+    "model_optimized": {
+      "mean_expected_pnl_usd": 347.61,
+      "mean_fill_probability": 0.5659,
+      "mean_spread_pips": 2.04
+    },
+    "oracle": {
+      "mean_expected_pnl_usd": 351.46,
+      "mean_fill_probability": 0.5799,
+      "mean_spread_pips": 2.01
+    },
+    "model_uplift_vs_fixed_pct": 49.31
+  }
+}

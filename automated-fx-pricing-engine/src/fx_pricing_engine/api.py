@@ -27,7 +27,16 @@ class QuoteRequestSchema(BaseModel):
 
 @app.get("/health")
 def health() -> dict[str, str]:
-    return {"status": "ok", "model_version": model.model_version}
+    return {
+        "status": "ok",
+        "model_name": model.model_name,
+        "model_version": model.model_version,
+    }
+
+
+@app.get("/v1/model/metrics")
+def model_metrics() -> dict:
+    return model.report
 
 
 @app.post("/v1/quote")

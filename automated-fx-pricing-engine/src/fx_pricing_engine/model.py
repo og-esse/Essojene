@@ -1,14 +1,16 @@
 from __future__ import annotations
 
-import json
-import math
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
+
+import joblib
 
 from fx_pricing_engine.contracts import QuoteCandidate, QuoteRequest, QuoteResponse
+from fx_pricing_engine.features import quote_features
 
 
-DEFAULT_MODEL_PATH = Path(__file__).resolve().parent / "artifacts" / "fill_model.json"
+DEFAULT_MODEL_PATH = Path(__file__).resolve().parent / "artifacts" / "fill_model.joblib"
 
 
 @dataclass(frozen=True)
@@ -16,20 +18,22 @@ class FxPricingModel:
     model_name: str
     model_version: str
     base_mid_by_pair: dict[str, float]
-    weights: dict[str, float]
+    predictor: Any
+    report: dict[str, Any]
 
     @classmethod
     def load(cls, model_path: Path | str = DEFAULT_MODEL_PATH) -> "FxPricingModel":
-        with Path(model_path).open() as model_file:
-            raw_model = json.load(model_file)
+        artifact = joblib.load(model_path)
+        metadata = artifact["metadata"]
 
         return cls(
-            model_name=raw_model["model_name"],
-            model_version=raw_model["model_version"],
+            model_name=metadata["model_name"],
+            model_version=metadata["model_version"],
             base_mid_by_pair={
-                pair: float(mid) for pair, mid in raw_model["base_mid_by_pair"].items()
+                pair: float(mid) for pair, mid in metadata["base_mid_by_pair"].items()
             },
-            weights={key: float(value) for key, value in raw_model["weights"].items()},
+            predictor=artifact["predictor"],
+            report=artifact["report"],
         )
 
     def recommend_quote(self, request: QuoteRequest) -> QuoteResponse:
@@ -53,17 +57,8 @@ class FxPricingModel:
         )
 
     def fill_probability(self, request: QuoteRequest, spread_pips: float) -> float:
-        score = self.weights["bias"]
-        score += self.weights["spread_pips"] * spread_pips
-        score += self.weights["notional_millions"] * request.notional_millions
-        score += self.weights["volatility_bps"] * request.volatility_bps
-        score += self.weights["liquidity_score"] * request.liquidity_score
-        score += self.weights["order_book_imbalance"] * request.order_book_imbalance
-        score += self.weights["client_tier_1"] * float(request.client_tier == 1)
-        score += self.weights["client_tier_2"] * float(request.client_tier == 2)
-        score += self.weights["side_buy"] * float(request.side == "buy")
-
-        return 1 / (1 + math.exp(-score))
+        features = quote_features(request, spread_pips)
+        return float(self.predictor.predict_proba([features])[0, 1])
 
     def _candidate(self, request: QuoteRequest, spread_pips: float) -> QuoteCandidate:
         mid = self._mid(request)

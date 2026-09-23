@@ -1,13 +1,15 @@
 # Automated FX Pricing Engine
 
-A Python proof of concept for quote optimization on an electronic FX desk. The engine takes a simplified request for quote, predicts the probability that a client accepts different spreads, and recommends the quote that maximizes expected P&L.
+A Python proof of concept for quote optimization on an electronic FX desk. The engine takes a simplified request for quote, uses a trained classifier to predict the probability that a client accepts different spreads, and recommends the quote that maximizes expected P&L.
 
-The model is intentionally transparent for portfolio review: coefficients live in `src/fx_pricing_engine/artifacts/fill_model.json`, the serving contract is typed, and tests cover the core pricing behavior.
+The project includes a reproducible synthetic RFQ generator, calibrated model comparison, held-out evaluation, pricing backtest, versioned model artifact, typed serving contract, and desk-facing UI. Synthetic data and limitations are documented explicitly in [MODEL_CARD.md](MODEL_CARD.md).
 
 ## What It Demonstrates
 
 - FX pricing and market microstructure concepts
 - Fill-probability modeling
+- Scikit-learn training and probability calibration
+- Held-out model evaluation and pricing-strategy backtesting
 - Expected-value optimization
 - Python production structure
 - FastAPI serving contract
@@ -58,9 +60,31 @@ Example output:
 }
 ```
 
+Inspect the deployed model's evaluation report:
+
+```bash
+curl http://127.0.0.1:8000/v1/model/metrics
+```
+
+## Train the Model
+
+Reproduce the packaged model and metrics with a deterministic 50,000-RFQ synthetic
+dataset:
+
+```bash
+train-fx-model --samples 50000
+```
+
+The pipeline compares calibrated logistic regression with monotonic histogram
+gradient boosting. It selects the model with the lowest validation log loss, then
+reports ROC-AUC, log loss, Brier score, expected calibration error, and held-out
+test performance. It also compares model-optimized spreads with a fixed 1-pip
+baseline and the synthetic oracle.
+
 ## Modeling Notes
 
-The fill model is a logistic scoring function over quote and market features:
+The deployed fill model is a calibrated histogram gradient-boosted classifier over
+quote and market features:
 
 - quoted spread
 - notional size
@@ -71,3 +95,19 @@ The fill model is a logistic scoring function over quote and market features:
 - buy/sell side
 
 The optimizer searches candidate spreads from 0.4 to 3.0 pips and selects the quote with the highest expected P&L after a simple adverse-selection cost adjustment.
+
+The committed model was trained only on synthetic data. Its metrics demonstrate a
+sound ML workflow and internally consistent pricing behavior, not live-market alpha.
+
+## Production Checks
+
+Build and run the same containerized service locally:
+
+```bash
+docker build -t fx-pricing-engine .
+docker run --rm -p 8000:8000 fx-pricing-engine
+```
+
+The image runs as a non-root user and includes an application health check. GitHub
+Actions runs the test suite and a 5,000-row training smoke test on each project
+change.

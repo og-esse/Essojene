@@ -222,7 +222,7 @@ async function initialize() {
     const response = await fetch("/health");
     if (!response.ok) throw new Error();
     const health = await response.json();
-    el("model-version").textContent = `synthetic_fx_quote_acceptance / ${health.model_version}`;
+    el("model-version").textContent = `${health.model_name} / ${health.model_version}`;
     form.requestSubmit();
   } catch {
     document.querySelector(".status-dot").classList.add("error");

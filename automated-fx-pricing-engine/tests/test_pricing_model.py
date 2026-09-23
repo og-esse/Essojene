@@ -38,3 +38,13 @@ def test_recommend_quote_balances_fill_probability_and_expected_pnl() -> None:
     assert response.expected_pnl_usd == max(expected_pnls)
     assert response.recommended_bid < response.mid < response.recommended_ask
     assert 0 < response.fill_probability < 1
+
+
+def test_serving_uses_evaluated_trained_artifact() -> None:
+    model = FxPricingModel.load()
+
+    assert model.model_name == "synthetic_fx_hist_gradient_boosting"
+    assert model.report["selected_model"] == "hist_gradient_boosting"
+    assert model.report["training_samples"] == 50_000
+    assert model.report["test_metrics"]["hist_gradient_boosting"]["roc_auc"] > 0.75
+    assert model.report["backtest"]["model_uplift_vs_fixed_pct"] > 0
