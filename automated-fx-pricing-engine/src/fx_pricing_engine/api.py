@@ -1,4 +1,8 @@
+from pathlib import Path
+
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from fx_pricing_engine.contracts import QuoteRequest
@@ -7,6 +11,7 @@ from fx_pricing_engine.model import FxPricingModel
 
 app = FastAPI(title="Automated FX Pricing Engine", version="1.0.0")
 model = FxPricingModel.load()
+STATIC_DIR = Path(__file__).resolve().parent / "static"
 
 
 class QuoteRequestSchema(BaseModel):
@@ -43,3 +48,11 @@ def quote(request: QuoteRequestSchema) -> dict:
         **response.__dict__,
         "candidates": [candidate.__dict__ for candidate in response.candidates],
     }
+
+
+@app.get("/", include_in_schema=False)
+def workstation() -> FileResponse:
+    return FileResponse(STATIC_DIR / "index.html")
+
+
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")

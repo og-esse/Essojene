@@ -2,7 +2,7 @@
 
 A Python proof of concept for quote optimization on an electronic FX desk. The engine takes a simplified request for quote, predicts the probability that a client accepts different spreads, and recommends the quote that maximizes expected P&L.
 
-The model is intentionally transparent for portfolio review: coefficients live in `artifacts/fill_model.json`, the serving contract is typed, and tests cover the core pricing behavior.
+The model is intentionally transparent for portfolio review: coefficients live in `src/fx_pricing_engine/artifacts/fill_model.json`, the serving contract is typed, and tests cover the core pricing behavior.
 
 ## What It Demonstrates
 
@@ -22,6 +22,10 @@ pip install -e ".[dev]"
 pytest
 uvicorn fx_pricing_engine.api:app --reload
 ```
+
+Open `http://127.0.0.1:8000` for the desk-facing pricing workstation. It includes
+an RFQ ticket, recommended bid/ask, model metrics, the spread optimization curve,
+and an in-session quote blotter.
 
 Call the quote API:
 

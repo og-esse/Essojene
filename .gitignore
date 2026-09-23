@@ -8,3 +8,5 @@
 .github/instructions/nx.instructions.md
 .env
 ai-server/.env
+automated-fx-pricing-engine/.venv/
+automated-fx-pricing-engine/.pytest_cache/

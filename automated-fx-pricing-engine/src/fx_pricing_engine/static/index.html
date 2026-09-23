@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111412">
+    <title>FX Quote Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">FX</span>
+        <div>
+          <strong>Quote Intelligence</strong>
+          <span>Automated pricing workstation</span>
+        </div>
+      </div>
+      <div class="desk-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="market-status">Model online</span>
+        <span class="divider"></span>
+        <span id="clock">--:--:-- ET</span>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="ticket-panel">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">New request</span>
+            <h1>Price an RFQ</h1>
+          </div>
+          <span class="ticket-id" id="ticket-id">RFQ-0001</span>
+        </div>
+
+        <form id="quote-form">
+          <label class="field">
+            <span>Currency pair</span>
+            <select id="currency-pair" name="currency_pair">
+              <option>EUR/USD</option>
+              <option>GBP/USD</option>
+              <option>USD/CAD</option>
+            </select>
+          </label>
+
+          <fieldset class="field">
+            <legend>Client side</legend>
+            <div class="segmented">
+              <input type="radio" id="side-buy" name="side" value="buy" checked>
+              <label for="side-buy">Buy</label>
+              <input type="radio" id="side-sell" name="side" value="sell">
+              <label for="side-sell">Sell</label>
+            </div>
+          </fieldset>
+
+          <label class="field">
+            <span>Notional</span>
+            <div class="input-affix">
+              <span>$</span>
+              <input id="notional" name="notional_millions" type="number" min="0.1" max="100" step="0.1" value="5" required>
+              <span>MM</span>
+            </div>
+          </label>
+
+          <div class="field-row">
+            <label class="field">
+              <span>Client tier</span>
+              <select id="client-tier" name="client_tier">
+                <option value="1">Tier 1</option>
+                <option value="2">Tier 2</option>
+                <option value="3">Tier 3</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Valid for</span>
+              <div class="input-affix compact">
+                <input id="validity" name="validity_seconds" type="number" min="5" max="300" value="60" required>
+                <span>sec</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="market-block">
+            <div class="block-title">
+              <span>Market conditions</span>
+              <button class="text-button" id="reset-market" type="button">Reset</button>
+            </div>
+            <label class="range-field">
+              <span><span>Volatility</span><output id="volatility-output">3.0 bps</output></span>
+              <input id="volatility" name="volatility_bps" type="range" min="0" max="20" step="0.5" value="3">
+            </label>
+            <label class="range-field">
+              <span><span>Liquidity</span><output id="liquidity-output">85%</output></span>
+              <input id="liquidity" name="liquidity_score" type="range" min="0" max="1" step="0.01" value="0.85">
+            </label>
+            <label class="range-field">
+              <span><span>Book imbalance</span><output id="imbalance-output">+0.05</output></span>
+              <input id="imbalance" name="order_book_imbalance" type="range" min="-1" max="1" step="0.05" value="0.05">
+            </label>
+          </div>
+
+          <button class="primary-button" id="price-button" type="submit">
+            <span>Run pricing model</span>
+            <span aria-hidden="true">&#8594;</span>
+          </button>
+        </form>
+      </aside>
+
+      <section class="main-panel">
+        <div class="instrument-bar">
+          <div>
+            <span class="pair" id="result-pair">EUR/USD</span>
+            <span class="side-badge buy" id="result-side">CLIENT BUYS</span>
+          </div>
+          <div class="model-meta">
+            <span>MODEL</span>
+            <strong id="model-version">Loading...</strong>
+          </div>
+        </div>
+
+        <section class="quote-strip" aria-live="polite">
+          <div class="price-block">
+            <span>Bid</span>
+            <strong id="bid-price">-.-----</strong>
+          </div>
+          <div class="mid-block">
+            <span>Mid</span>
+            <strong id="mid-price">-.-----</strong>
+          </div>
+          <div class="price-block ask">
+            <span>Ask</span>
+            <strong id="ask-price">-.-----</strong>
+          </div>
+          <div class="spread-block">
+            <span>Optimal spread</span>
+            <strong id="spread-value">--</strong>
+            <small>pips</small>
+          </div>
+        </section>
+
+        <section class="metrics-grid">
+          <article class="metric">
+            <div class="metric-label"><span>Fill probability</span><span id="fill-rating">--</span></div>
+            <strong id="fill-value">--%</strong>
+            <div class="progress"><span id="fill-bar"></span></div>
+            <p>Estimated client acceptance at recommended spread</p>
+          </article>
+          <article class="metric pnl">
+            <div class="metric-label"><span>Expected P&amp;L</span><span>USD</span></div>
+            <strong id="pnl-value">$--</strong>
+            <div class="metric-delta" id="pnl-delta">Awaiting model result</div>
+            <p>Expected edge after adverse-selection adjustment</p>
+          </article>
+          <article class="metric">
+            <div class="metric-label"><span>Quote quality</span><span>MODEL</span></div>
+            <strong id="quality-value">--</strong>
+            <div class="quality-pills" id="quality-pills">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p>Composite of liquidity, confidence and expected value</p>
+          </article>
+        </section>
+
+        <section class="chart-section">
+          <div class="section-heading chart-heading">
+            <div>
+              <span class="eyebrow">Optimization curve</span>
+              <h2>Spread trade-off</h2>
+            </div>
+            <div class="legend"><span class="pnl-key">Expected P&amp;L</span><span class="fill-key">Fill probability</span></div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="curve-chart" role="img" aria-label="Expected profit and fill probability by spread"></canvas>
+            <div class="chart-tooltip" id="chart-tooltip" hidden></div>
+          </div>
+        </section>
+
+        <section class="blotter-section">
+          <div class="section-heading blotter-heading">
+            <div>
+              <span class="eyebrow">Session activity</span>
+              <h2>Recent quotes</h2>
+            </div>
+            <button class="text-button" id="clear-history" type="button">Clear</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Time</th><th>Pair</th><th>Side</th><th>Notional</th><th>Spread</th><th>Fill prob.</th><th>Exp. P&amp;L</th></tr></thead>
+              <tbody id="quote-history">
+                <tr class="empty-row"><td colspan="7">Run the model to start this session's quote history.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" hidden></div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

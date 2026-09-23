@@ -8,7 +8,7 @@ from pathlib import Path
 from fx_pricing_engine.contracts import QuoteCandidate, QuoteRequest, QuoteResponse
 
 
-DEFAULT_MODEL_PATH = Path(__file__).resolve().parents[2] / "artifacts" / "fill_model.json"
+DEFAULT_MODEL_PATH = Path(__file__).resolve().parent / "artifacts" / "fill_model.json"
 
 
 @dataclass(frozen=True)
