@@ -67,6 +67,44 @@
   }
 }
 
+.fact-grid {
+  border-bottom: 1px solid #e2e8f0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 1.5rem 0;
+
+  div {
+    min-width: 0;
+  }
+
+  strong,
+  span {
+    display: block;
+  }
+
+  strong {
+    color: #0f172a;
+    font-size: 1.1rem;
+  }
+
+  span {
+    color: #64748b;
+    font-size: 0.78rem;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.production {
+  border-top: 1px solid #e2e8f0;
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+
 h2 {
   color: #0f172a;
   font-size: 1.2rem;
@@ -192,9 +230,21 @@ pre {
   .architecture,
   .quote-table,
   .proof,
+  .fact-grid,
+  .production,
   table th,
   table td {
     border-color: #334155;
+  }
+
+  .fact-grid {
+    strong {
+      color: #f8fafc;
+    }
+
+    span {
+      color: #94a3b8;
+    }
   }
 
   .flow span {

@@ -5,8 +5,10 @@
     <p class="eyebrow">Featured Quant POC</p>
     <h1>Automated FX Pricing Engine</h1>
     <p>
-      A Python proof of concept that recommends an FX quote by combining
-      fill-probability modeling, market features, and expected-P&L optimization.
+      A desk-facing applied machine learning system that turns market, trade,
+      and client context into an explainable FX quote recommendation. It
+      combines calibrated fill-probability modeling with expected-P&amp;L
+      optimization to support faster, evidence-based pricing decisions.
     </p>
 
     <div class="actions">
@@ -20,9 +22,16 @@
     </div>
   </header>
 
+  <section class="fact-grid" aria-label="Project facts">
+    <div *ngFor="let fact of projectFacts">
+      <strong>{{ fact.value }}</strong>
+      <span>{{ fact.label }}</span>
+    </div>
+  </section>
+
   <div class="content-grid">
     <section>
-      <h2>What I Built</h2>
+      <h2>Modeling &amp; Optimization</h2>
       <ul class="check-list">
         <li *ngFor="let highlight of highlights">{{ highlight }}</li>
       </ul>
@@ -35,6 +44,13 @@
       </div>
     </aside>
   </div>
+
+  <section class="production">
+    <h2>Production &amp; Feedback</h2>
+    <ul class="check-list">
+      <li *ngFor="let highlight of productionHighlights">{{ highlight }}</li>
+    </ul>
+  </section>
 
   <section class="architecture">
     <h2>Pricing Flow</h2>

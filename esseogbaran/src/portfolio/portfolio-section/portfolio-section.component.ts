@@ -38,6 +38,7 @@ export class PortfolioSectionComponent {
     'Python',
     'Quant',
     'ML',
+    'scikit-learn',
     'Optimization',
     'MCP',
     'FastAPI',
@@ -50,16 +51,23 @@ export class PortfolioSectionComponent {
     {
       title: 'Automated FX Pricing Engine',
       description:
-        'Python proof of concept for an electronic FX desk that predicts quote acceptance, searches candidate spreads, and recommends the bid/ask quote that maximizes expected P&L under market and client conditions.',
+        'Desk-facing pricing system for electronic FX that predicts client quote acceptance, evaluates candidate spreads, and recommends the bid/ask price with the highest expected P&L under current market and client conditions.',
       link: '/projects/automated-fx-pricing-engine',
       githubUrl:
         'https://github.com/og-esse/Essojene/tree/london/automated-fx-pricing-engine',
-      tags: ['Python', 'Quant', 'ML', 'FastAPI', 'Optimization'],
+      tags: [
+        'Python',
+        'Quant',
+        'ML',
+        'scikit-learn',
+        'FastAPI',
+        'Optimization',
+      ],
       featured: true,
       highlights: [
-        'Models fill probability from spread, size, volatility, liquidity, and client tier',
-        'Optimizes bid/ask quote selection against expected P&L',
-        'Serves recommendations through a versioned /v1/quote API',
+        'Trains and evaluates calibrated models on 50,000 synthetic RFQs',
+        'Optimizes spread selection using fill probability and expected P&L',
+        'Ships a versioned API, desk UI, and append-only trader feedback trail',
       ],
     },
     {

@@ -11,13 +11,34 @@ import { RouterModule } from '@angular/router';
 })
 export class FxPricingEngineComponent {
   highlights = [
-    'Prices an RFQ using mid-market, spread, notional, volatility, liquidity, order-book imbalance, and client tier inputs.',
-    'Predicts quote acceptance probability for each candidate spread.',
-    'Optimizes the quote by maximizing expected P&L after adverse-selection cost.',
-    'Serves the pricing workflow through a versioned FastAPI endpoint.',
+    'Framed electronic quote setting as a supervised fill-probability problem followed by expected-value optimization.',
+    'Built a deterministic 50,000-RFQ training pipeline using spread, notional, volatility, liquidity, order-book imbalance, client tier, and trade side.',
+    'Compared calibrated logistic regression and histogram gradient boosting using held-out log loss, ROC-AUC, Brier score, and calibration error.',
+    'Searches candidate spreads from 0.4 to 3.0 pips and recommends the quote that maximizes expected P&L after adverse-selection cost.',
   ];
 
-  stack = ['Python', 'FastAPI', 'Quant', 'ML', 'Optimization'];
+  productionHighlights = [
+    'Serves typed quote recommendations and model metrics through versioned FastAPI endpoints.',
+    'Captures accepts, rejects, and trader overrides in an append-only SQLite audit trail for feedback analysis.',
+    'Packages the service with Docker and validates pricing behavior through pytest and backtesting.',
+  ];
+
+  stack = [
+    'Python',
+    'scikit-learn',
+    'FastAPI',
+    'Pydantic',
+    'NumPy',
+    'SQLite',
+    'Docker',
+    'pytest',
+  ];
+
+  projectFacts = [
+    { value: '50,000', label: 'Synthetic RFQs' },
+    { value: '0.4-3.0', label: 'Spread search (pips)' },
+    { value: '/v1/quote', label: 'Typed pricing API' },
+  ];
 
   sampleRows = [
     { spread: '0.6 pips', fill: '90%', pnl: '$118' },
