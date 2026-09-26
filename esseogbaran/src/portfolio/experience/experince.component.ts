@@ -25,7 +25,7 @@ export class ExperienceSectionComponent {
       company: 'Royal Bank of Canada',
       duration: 'January 2026 – Present',
       description: [
-        'Lead front-end and platform development for the Investments Mega Journey, delivering React/Angular customer journeys and Java/Spring Boot REST APIs for business-critical investment experiences.',
+        'Lead front-end and platform development for the Investments Mega Journey, delivering Angular and React customer journeys and Java/Spring Boot REST APIs for business-critical investment experiences.',
         'Co-led backend and platform development, designing and deploying contract-first Java/Spring Boot REST APIs for RRSP/TFSA tax-savings calculations and returning-user state determination.',
         'Enabled light and dark mode across the entire Investments Mega Journey on web and mobile, improving visual consistency, accessibility, and user experience across investment flows.',
         'Built front-end flows and an enterprise middleware/orchestration layer for a tax-savings calculator, adapting internal tax-projection requests into a third-party calculation engine format and mapping responses back into internal DTOs and MongoDB document models.',
@@ -38,6 +38,7 @@ export class ExperienceSectionComponent {
       ],
       stack: [
         'Angular',
+        'React',
         'TypeScript',
         'HTML',
         'SCSS',
