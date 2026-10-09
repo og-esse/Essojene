@@ -11,16 +11,16 @@ import { RouterModule } from '@angular/router';
 })
 export class FxPricingEngineComponent {
   highlights = [
-    'Framed electronic quote setting as a supervised fill-probability problem followed by expected-value optimization.',
-    'Built a deterministic 50,000-RFQ training pipeline using spread, notional, volatility, liquidity, order-book imbalance, client tier, and trade side.',
-    'Compared calibrated logistic regression and histogram gradient boosting using held-out log loss, ROC-AUC, Brier score, and calibration error.',
-    'Searches candidate spreads from 0.4 to 3.0 pips and recommends the quote that maximizes expected P&L after adverse-selection cost.',
+    'Built a reproducible training pipeline using 50,000 synthetic RFQs across notional, volatility, liquidity, order-book imbalance, client tier, side, and currency pair.',
+    'Compared calibrated logistic regression with monotonic histogram gradient boosting, achieving 0.789 held-out ROC-AUC and a 0.176 Brier score.',
+    'Evaluates 14 candidate spreads from 0.4 to 3.0 pips, balancing fill probability, spread revenue, and adverse-selection cost.',
+    'Produced a 49.3% mean expected-P&L uplift over fixed 1-pip pricing in synthetic backtesting.',
   ];
 
   productionHighlights = [
     'Serves typed quote recommendations and model metrics through versioned FastAPI endpoints.',
     'Captures accepts, rejects, and trader overrides in an append-only SQLite audit trail for feedback analysis.',
-    'Packages the service with Docker and validates pricing behavior through pytest and backtesting.',
+    'Packages the service with Docker and validates pricing behavior through automated tests, backtesting, and GitHub Actions CI.',
   ];
 
   stack = [
@@ -35,9 +35,10 @@ export class FxPricingEngineComponent {
   ];
 
   projectFacts = [
-    { value: '50,000', label: 'Synthetic RFQs' },
-    { value: '0.4-3.0', label: 'Spread search (pips)' },
-    { value: '/v1/quote', label: 'Typed pricing API' },
+    { value: '0.789', label: 'Held-out ROC-AUC' },
+    { value: '0.176', label: 'Brier score' },
+    { value: '+49.3%', label: 'Mean expected-P&L uplift' },
+    { value: '14', label: 'Candidate spreads' },
   ];
 
   sampleRows = [

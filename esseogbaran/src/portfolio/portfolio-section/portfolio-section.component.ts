@@ -8,6 +8,7 @@ interface Project {
   description: string;
   link: string;
   githubUrl?: string;
+  liveUrl?: string;
   tags: string[];
   featured?: boolean;
   highlights?: string[];
@@ -51,10 +52,11 @@ export class PortfolioSectionComponent {
     {
       title: 'Automated FX Pricing Engine',
       description:
-        'Desk-facing pricing system for electronic FX that predicts client quote acceptance, evaluates candidate spreads, and recommends the bid/ask price with the highest expected P&L under current market and client conditions.',
+        'Desk-facing FX pricing application that combines predicted client fill probability, expected P&L, and adverse-selection costs to recommend an optimal bid/ask spread.',
       link: '/projects/automated-fx-pricing-engine',
       githubUrl:
         'https://github.com/og-esse/Essojene/tree/london/automated-fx-pricing-engine',
+      liveUrl: 'https://essojene.onrender.com/',
       tags: [
         'Python',
         'Quant',
@@ -65,9 +67,9 @@ export class PortfolioSectionComponent {
       ],
       featured: true,
       highlights: [
-        'Trains and evaluates calibrated models on 50,000 synthetic RFQs',
-        'Optimizes spread selection using fill probability and expected P&L',
-        'Ships a versioned API, desk UI, and append-only trader feedback trail',
+        '0.789 held-out ROC-AUC and 0.176 Brier score on 50,000 synthetic RFQs',
+        '49.3% mean expected-P&L uplift over fixed 1-pip pricing in backtesting',
+        '14-spread optimizer delivered with FastAPI, Docker, tests, and CI',
       ],
     },
     {
