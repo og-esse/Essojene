@@ -1,16 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ExperinceComponent } from './experince.component';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+import { provideRouter } from '@angular/router';
+import { ExperienceSectionComponent } from './experince.component';
 
-describe('ExperinceComponent', () => {
-  let component: ExperinceComponent;
-  let fixture: ComponentFixture<ExperinceComponent>;
+describe('ExperienceSectionComponent', () => {
+  let component: ExperienceSectionComponent;
+  let fixture: ComponentFixture<ExperienceSectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ExperinceComponent],
+      imports: [ExperienceSectionComponent],
+      providers: [provideRouter([]), provideNoopAnimations()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ExperinceComponent);
+    fixture = TestBed.createComponent(ExperienceSectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

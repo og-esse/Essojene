@@ -91,6 +91,44 @@
   }
 }
 
+.experience-section {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 8px 30px var(--shadow);
+
+  .back-link,
+  .experience-card .job-description li::marker {
+    color: var(--accent);
+  }
+
+  .section-title,
+  .experience-card header .job-title {
+    color: var(--ink);
+  }
+
+  .experience-card {
+    border-color: var(--border);
+
+    header .job-title .company,
+    header .job-duration,
+    .job-description,
+    .tech-stack {
+      color: var(--muted);
+    }
+  }
+}
+
+:host-context(.dark) .experience-section {
+  background: var(--surface);
+  color: var(--ink);
+
+  .back-link,
+  .section-title,
+  .experience-card header .job-title {
+    color: var(--ink);
+  }
+}
+
 .education {
   margin-top: 2rem;
 }
@@ -133,6 +171,32 @@
       .tech-stack {
         color: #a0aec0;
       }
+    }
+  }
+}
+
+:host-context(.dark) .experience-section {
+  background: var(--surface);
+  color: var(--ink);
+
+  .back-link,
+  .experience-card .job-description li::marker {
+    color: var(--accent);
+  }
+
+  .section-title,
+  .experience-card header .job-title {
+    color: var(--ink);
+  }
+
+  .experience-card {
+    border-color: var(--border);
+
+    header .job-title .company,
+    header .job-duration,
+    .job-description,
+    .tech-stack {
+      color: var(--muted);
     }
   }
 }
