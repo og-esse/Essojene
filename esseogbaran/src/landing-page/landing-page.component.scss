@@ -6,7 +6,7 @@
   padding: 5rem 1rem;
   min-height: 100vh;
   text-align: center;
-  background: linear-gradient(to right, #f0f4ff, #e0ecff);
+  background: #f6f5f1;
 .name {
   display: block;
   font-size: 1.25rem;
@@ -28,7 +28,7 @@
     margin-bottom: 1rem;
 
     span {
-      color: #2563eb;
+      color: #0f766e;
       display: block;
       font-size: 0.55em;
       line-height: 1.35;
@@ -37,17 +37,22 @@
   }
 
   .proof-grid {
+    background: #16302b;
+    border: 1px solid #254c44;
+    border-radius: 1.1rem;
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     margin: 0 auto 3.5rem;
+    padding: 1rem;
     text-align: left;
+    box-shadow: 0 16px 40px rgba(22, 48, 43, 0.16);
 
     article {
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       border-radius: 0.85rem;
-      padding: 1.1rem;
+      padding: 1.2rem;
     }
 
     strong,
@@ -56,7 +61,7 @@
     }
 
     strong {
-      color: #1d4ed8;
+      color: #0f766e;
       font-size: 1.35rem;
       margin-bottom: 0.35rem;
     }
@@ -71,7 +76,7 @@
 .subtitle {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #555;
+  color: #475569;
   margin-bottom: 1.25rem;
   max-width: 640px;
 }
@@ -133,39 +138,39 @@
   }
 
   .btn.primary {
-    background-color: #2563eb;
+  background-color: #0f766e;
     color: #fff;
 
     &:hover {
-      background-color: #1e40af;
-      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
+      background-color: #115e59;
+      box-shadow: 0 6px 14px rgba(15, 118, 110, 0.26);
       transform: translateY(-2px);
     }
   }
 
   .btn.secondary {
     background-color: transparent;
-    border: 2px solid #2563eb;
-    color: #2563eb;
+    border: 2px solid #0f766e;
+    color: #0f766e;
 
     &:hover {
-      background-color: #eff6ff;
-      border-color: #1d4ed8;
-      color: #1d4ed8;
+      background-color: #ecfdf5;
+      border-color: #115e59;
+      color: #115e59;
       transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.1);
+      box-shadow: 0 6px 14px rgba(15, 118, 110, 0.12);
     }
   }
 
   .btn:not(.primary):not(.secondary) {
-    background-color: #e0ecff;
-    color: #1e3a8a;
-    border: 2px solid transparent;
+    background-color: #e7e5df;
+    color: #24332f;
+    border: 2px solid #d6d3cb;
 
     &:hover {
-      background-color: #d4e5ff;
+      background-color: #dedbd3;
       transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(30, 58, 138, 0.1);
+      box-shadow: 0 6px 14px rgba(36, 51, 47, 0.1);
     }
   }
 
@@ -178,7 +183,7 @@
       font-size: 2.25rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
-      color: #1e3a8a;
+      color: #16302b;
     }
 
     p {
@@ -225,14 +230,14 @@
   }
 
   .focus-areas {
-    background: rgba(255, 255, 255, 0.65);
-    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    border: 1px solid #d6d3cb;
     border-radius: 0.85rem;
     margin-top: 2rem;
     padding: 1.5rem;
 
     h3 {
-      color: #1e3a8a;
+      color: #16302b;
       font-size: 1.35rem;
       margin: 0 0 1rem;
     }
@@ -246,7 +251,7 @@
     }
 
     li::marker {
-      color: #2563eb;
+      color: #0f766e;
     }
   }
 
@@ -284,7 +289,7 @@
 /* Dark mode tweaks */
 :host-context(.dark) {
   .hero-section {
-    background: radial-gradient(circle at top left, #020617, #020617 40%, #020617);
+    background: #0d1715;
 
     .content {
       color: #e5e7eb;
@@ -292,6 +297,11 @@
 
     .subtitle {
       color: #9ca3af;
+    }
+
+    .title span,
+    .proof-grid strong {
+      color: #5eead4;
     }
 
     .hero-meta {
@@ -310,17 +320,27 @@
     }
 
     .about-content h2 {
-      color: #bfdbfe;
+      color: #99f6e4;
     }
 
     .about-content p {
       color: #e5e7eb;
     }
 
-    .proof-grid article,
+    .proof-grid {
+      background: #102f29;
+      border-color: #28564d;
+      box-shadow: none;
+    }
+
+    .proof-grid article {
+      background: #172a27;
+      border-color: #345d55;
+    }
+
     .focus-areas {
-      background: rgba(15, 23, 42, 0.72);
-      border-color: #334155;
+      background: #172a27;
+      border-color: #345d55;
     }
 
     .proof-grid span {
@@ -328,7 +348,7 @@
     }
 
     .focus-areas h3 {
-      color: #bfdbfe;
+      color: #99f6e4;
     }
 
     .little-known-fact {
