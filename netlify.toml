@@ -1,0 +1,11 @@
+[build]
+  command = "npm --prefix esseogbaran run build"
+  publish = "esseogbaran/dist/my-workspace/browser"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  directory = "esseogbaran/netlify/functions"
