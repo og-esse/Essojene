@@ -191,17 +191,23 @@
       line-height: 1.7;
       font-size: 1.05rem;
     }
+
+    a {
+      color: var(--accent);
+      font-weight: 600;
+    }
   }
 
   .little-known-fact {
     margin-top: 2rem;
-    background-color: #e0f2fe;
-    border-left: 5px solid #3b82f6;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-left: 5px solid var(--accent);
     padding: 1rem 1.5rem;
     border-radius: 8px;
     font-style: italic;
-    color: #1e3a8a;
-    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.15);
+    color: var(--ink);
+    box-shadow: 0 8px 24px var(--shadow);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -213,7 +219,7 @@
       align-items: center;
       gap: 0.5rem;
       margin-bottom: 0.75rem;
-      color: #1e40af;
+      color: var(--accent-hover);
     }
 
     .icon {
@@ -352,12 +358,13 @@
     }
 
     .little-known-fact {
-      background-color: rgba(37, 99, 235, 0.12);
-      border-left-color: #60a5fa;
-      color: #dbeafe;
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      border-left-color: var(--accent);
+      color: var(--ink);
 
       h3 {
-        color: #bfdbfe;
+        color: var(--accent);
       }
     }
   }
