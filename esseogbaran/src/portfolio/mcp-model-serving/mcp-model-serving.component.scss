@@ -174,3 +174,82 @@ pre {
   }
 }
 
+.case-study {
+  color: var(--ink);
+}
+
+.back-link,
+.case-hero .eyebrow,
+.check-list li::marker {
+  color: var(--accent);
+}
+
+.case-hero {
+  border-color: var(--border);
+
+  h1 {
+    color: var(--ink);
+  }
+
+  p {
+    color: var(--muted);
+  }
+}
+
+.actions a {
+  background: var(--accent);
+}
+
+h2 {
+  color: var(--ink);
+}
+
+.check-list {
+  color: var(--muted);
+}
+
+.tags span {
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
+
+.architecture,
+.proof {
+  border-color: var(--border);
+}
+
+.flow span {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+pre {
+  background: var(--code-bg);
+}
+
+:host-context(.dark) {
+  .case-hero h1,
+  h2,
+  .flow span {
+    color: var(--ink);
+  }
+
+  .case-hero p,
+  .check-list {
+    color: var(--muted);
+  }
+
+  .case-hero,
+  .architecture,
+  .proof,
+  .flow span {
+    border-color: var(--border);
+  }
+
+  .flow span {
+    background: var(--surface);
+  }
+}
+

@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --page-bg: #f6f5f1;
+  --surface: #ffffff;
+  --surface-subtle: #efeee9;
+  --ink: #17211f;
+  --muted: #5f6f6b;
+  --accent: #0f766e;
+  --accent-hover: #115e59;
+  --accent-soft: #dff4ef;
+  --accent-border: #99d8cb;
+  --border: #d8d6cf;
+  --deep: #16302b;
+  --code-bg: #10231f;
+  --shadow: rgba(22, 48, 43, 0.12);
+}
+
+.dark {
+  --page-bg: #0d1715;
+  --surface: #172a27;
+  --surface-subtle: #203530;
+  --ink: #f4f7f6;
+  --muted: #b8c6c2;
+  --accent: #5eead4;
+  --accent-hover: #99f6e4;
+  --accent-soft: #173f38;
+  --accent-border: #345d55;
+  --border: #345d55;
+  --deep: #102f29;
+  --code-bg: #091512;
+  --shadow: rgba(0, 0, 0, 0.28);
+}
+
+html,
+body {
+  background: var(--page-bg);
+  color: var(--ink);
+}

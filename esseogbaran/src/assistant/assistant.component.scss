@@ -8,6 +8,50 @@
   font-family: system-ui;
 }
 
+.assistant-container {
+  color: var(--ink);
+}
+
+.nav-link {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+.nav-link--back,
+.escalate-button,
+.input-bar button {
+  background: var(--deep);
+  border-color: var(--deep);
+  color: #ffffff;
+}
+
+.quick-action {
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  color: var(--accent-hover);
+}
+
+.chat-window {
+  background: var(--code-bg);
+  border-color: var(--border);
+}
+
+.message.user {
+  background: var(--accent);
+}
+
+.message.assistant {
+  background: var(--surface-subtle);
+  color: var(--ink);
+}
+
+.input-bar input {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
 .nav-actions {
   display: flex;
   gap: 0.75rem;
@@ -138,4 +182,48 @@
     opacity: 0.6;
     cursor: not-allowed;
   }
+}
+
+.assistant-container {
+  color: var(--ink);
+}
+
+.nav-link {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+.nav-link--back,
+.escalate-button,
+.input-bar button {
+  background: var(--deep);
+  border-color: var(--deep);
+  color: #ffffff;
+}
+
+.quick-action {
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  color: var(--accent-hover);
+}
+
+.chat-window {
+  background: var(--code-bg);
+  border-color: var(--border);
+}
+
+.message.user {
+  background: var(--accent);
+}
+
+.message.assistant {
+  background: var(--surface-subtle);
+  color: var(--ink);
+}
+
+.input-bar input {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--ink);
 }

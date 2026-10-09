@@ -5,6 +5,34 @@
   text-align: center;
 }
 
+.education-section {
+  background: var(--page-bg);
+  color: var(--ink);
+}
+
+.back-link,
+.degree,
+.program,
+.achievement-list li::marker {
+  color: var(--accent);
+}
+
+.education-section h2,
+.school-name {
+  color: var(--ink);
+}
+
+.education-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.duration,
+.achievement-list {
+  color: var(--muted);
+}
+
 .back-link {
   display: inline-flex;
   margin-bottom: 1.5rem;
@@ -79,4 +107,32 @@
   .education-item {
     padding: 1.25rem;
   }
+}
+
+.education-section {
+  background: var(--page-bg);
+  color: var(--ink);
+}
+
+.back-link,
+.degree,
+.program,
+.achievement-list li::marker {
+  color: var(--accent);
+}
+
+.education-section h2,
+.school-name {
+  color: var(--ink);
+}
+
+.education-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.duration,
+.achievement-list {
+  color: var(--muted);
 }

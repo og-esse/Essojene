@@ -262,3 +262,95 @@ pre {
     color: #e2e8f0;
   }
 }
+
+.case-study {
+  color: var(--ink);
+}
+
+.back-link,
+.case-hero .eyebrow,
+.check-list li::marker {
+  color: var(--accent);
+}
+
+.case-hero {
+  border-color: var(--border);
+
+  h1 {
+    color: var(--ink);
+  }
+
+  p {
+    color: var(--muted);
+  }
+}
+
+.actions {
+  a {
+    background: var(--accent);
+  }
+
+  .secondary-action {
+    background: transparent;
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+h2,
+.fact-grid strong,
+table th {
+  color: var(--ink);
+}
+
+.check-list,
+table td {
+  color: var(--muted);
+}
+
+.tags span {
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
+
+.architecture,
+.quote-table,
+.proof,
+.fact-grid,
+.production,
+table th,
+table td {
+  border-color: var(--border);
+}
+
+.flow span {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+pre {
+  background: var(--code-bg);
+}
+
+:host-context(.dark) {
+  .case-hero h1,
+  h2,
+  .fact-grid strong,
+  table th,
+  .flow span {
+    color: var(--ink);
+  }
+
+  .case-hero p,
+  .check-list,
+  table td {
+    color: var(--muted);
+  }
+
+  .flow span {
+    background: var(--surface);
+    border-color: var(--border);
+  }
+}
