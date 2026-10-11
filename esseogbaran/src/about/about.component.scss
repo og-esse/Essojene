@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+.about-page {
+  padding-block: 4rem 6rem;
+}
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.045em;
+  margin-bottom: 3rem;
+}
+.about-copy {
+  max-width: 760px;
+}
+.about-copy > p {
+  color: var(--muted);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.about-copy a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.little-known-fact {
+  padding: 1.5rem;
+  margin-top: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fafafa;
+}
+.little-known-fact h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+.little-known-fact p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+@media (max-width: 600px) {
+  .about-page {
+    padding-block: 2rem 4rem;
+  }
+}

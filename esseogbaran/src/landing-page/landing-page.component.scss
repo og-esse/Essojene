@@ -2,7 +2,7 @@
 :host { display: block; }
 .hero-section { overflow: hidden; background: #fff; }
 .content { width: min(100% - 3rem, 976px); margin-inline: auto; }
-.hero-stage { position: relative; padding-block: 4.5rem; min-height: 100svh; display: flex; align-items: center; }
+.hero-stage { position: relative; padding-block: 4.5rem; min-height: calc(100svh - 64px); display: flex; align-items: center; }
 .hero-glow { left: calc((976px - 100vw) / 2); right: calc((976px - 100vw) / 2); }
 .hero-intro { position: relative; width: 100%; }
 .name { display: inline-block; margin-bottom: 1rem; padding: .25rem .75rem; border-radius: 999px; background: #f5f5f5; color: #525252; font-size: .875rem; font-weight: 500; }
@@ -14,13 +14,6 @@
 .btn:hover { transform: translateY(-2px); background: #f5f5f5; }
 .btn.primary { color: #fff; background: #171717; border-color: #171717; }
 .btn.primary:hover { background: #303030; }
-.about-content { border-top: 1px solid var(--border); padding-block: 5rem 6rem; }
-.about-content h2 { font-size: clamp(2.25rem, 4.5vw, 3rem); letter-spacing: -.04em; margin-bottom: 2rem; }
-.about-content > p { max-width: 760px; color: var(--muted); font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem; }
-.about-content a { text-decoration: underline; text-underline-offset: 4px; }
-.little-known-fact { max-width: 760px; padding: 1.5rem; margin-top: 2.5rem; border: 1px solid var(--border); border-radius: 8px; background: #fafafa; }
-.little-known-fact h3 { font-size: 1.125rem; margin-bottom: .75rem; }
-.little-known-fact p { color: var(--muted); margin-bottom: 0; }
 .hero-glow { position: absolute; inset: 0; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 72% 38%, rgba(0, 0, 0, .035), transparent 38%); }
 .name-pattern { color: #171717; opacity: .035; font: italic 13px/1.5 'Courier New', monospace; white-space: nowrap; }
 .name-pattern div:nth-child(even) { transform: translateX(-3rem); }
@@ -33,7 +26,6 @@ h1 { max-width: 900px; font-size: clamp(3rem, 6.3vw, 4.5rem); font-weight: 700; 
  .hero-stage { padding-block: 3rem; }
  .hero-intro { grid-template-columns: 1fr; gap: 2rem; }
  .name-ring { width: min(100%, 340px); justify-self: center; }
- .about-content { padding-block: 3rem 4rem; }
 }
 @media (max-width: 540px) {
  .content { width: calc(100% - 2rem); }

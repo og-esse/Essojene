@@ -1,3 +1,91 @@
-<main class="app-shell">
-  <router-outlet></router-outlet>
-</main>
+<div class="app-shell">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a routerLink="/" class="brand" (click)="closeMenu()">Esse.</a>
+      <button
+        class="menu-button"
+        type="button"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen"
+        aria-controls="main-menu"
+        aria-label="Toggle navigation"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="main-menu" [class.is-open]="menuOpen">
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page"
+          (click)="closeMenu()"
+          >Home</a
+        ><a
+          routerLink="/about"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          (click)="closeMenu()"
+          >About</a
+        ><a
+          routerLink="/portfolio"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          (click)="closeMenu()"
+          >Portfolio</a
+        ><a
+          routerLink="/experience"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          (click)="closeMenu()"
+          >Experience</a
+        ><a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          (click)="closeMenu()"
+          >Resume</a
+        ><a href="mailto:ogbarane@gmail.com" (click)="closeMenu()">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main-content" tabindex="-1"><router-outlet></router-outlet></main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>Esse Ogbaran</h2>
+        <p>
+          Senior Software Engineer building practical products across AI,
+          fintech, and the web.
+        </p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a routerLink="/about">About</a><a routerLink="/portfolio">Portfolio</a
+        ><a routerLink="/experience">Experience</a
+        ><a routerLink="/education">Education</a>
+      </div>
+      <div>
+        <h3>Connect</h3>
+        <a href="mailto:ogbarane@gmail.com">Email</a
+        ><a
+          href="https://www.linkedin.com/in/ess%C3%A9-ogbaran/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        ><a
+          href="https://github.com/og-esse"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        ><a href="https://jnwrld.com" target="_blank" rel="noopener noreferrer"
+          >JNWRLD</a
+        >
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; {{ currentYear }} Esse Ogbaran</span
+      ><span>Designed &amp; built with Angular</span>
+    </div>
+  </footer>
+</div>

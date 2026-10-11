@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AboutComponent } from '../about/about.component';
 import { AssistantComponent } from 'src/assistant/assistant.component';
 import { LandingPageComponent } from 'src/landing-page/landing-page.component';
 import { EducationComponent } from 'src/portfolio/education/education.component';
@@ -9,6 +10,7 @@ import { PortfolioSectionComponent } from '../portfolio/portfolio-section/portfo
 
 export const appRoutes: Routes = [
   { path: '', component: LandingPageComponent }, // Directly load landing page at root
+  { path: 'about', component: AboutComponent },
   { path: 'assistant', component: AssistantComponent },
   { path: 'portfolio', component: PortfolioSectionComponent },
   {

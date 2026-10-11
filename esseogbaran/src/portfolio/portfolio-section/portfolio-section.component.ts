@@ -162,14 +162,14 @@ export class PortfolioSectionComponent {
       description:
         'Worked front to back on RBC’s Embedded Advice initiative to digitize financial advice inside self-serve investment flows. Built Angular UI, Highcharts visualizations, Spring Boot REST APIs, and integrations across multiple APIs to provide clients with contextual, real-time tax-savings insights for financial decisions.',
       link: '',
-      tags: ['Angular', 'Spring Boot', 'REST API', 'Highcharts'],
+      tags: ['Angular', 'React', 'Spring Boot', 'REST API', 'Highcharts'],
     },
     {
       title: 'Investment Account Discovery Assistant',
       description:
         'Built an assisted-discovery experience to help users choose the right investment account type, using prompt-engineering concepts to guide decision-making in a clearer, more personalized flow. Led the frontend delivery for the initiative, earned a promotion during the work, and shipped the project ahead of schedule.',
       link: '',
-      tags: ['Angular', 'TypeScript', 'REST API'],
+      tags: ['Angular', 'React', 'TypeScript', 'REST API'],
     },
     {
       title: 'Investments Menu Rebuild',
