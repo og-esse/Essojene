@@ -12,6 +12,41 @@ h1 {
 .about-copy {
   max-width: 760px;
 }
+.professional-background {
+  max-width: 760px;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.professional-background h2,
+.about-copy h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+.professional-background h3 {
+  font-size: 1.125rem;
+  margin-block: 2rem 1rem;
+}
+.professional-background p,
+.career-highlights {
+  color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.professional-background strong {
+  color: var(--ink);
+}
+.role-date {
+  display: block;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+.career-highlights {
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 1rem;
+}
 .about-copy > p {
   color: var(--muted);
   font-size: 1.125rem;
