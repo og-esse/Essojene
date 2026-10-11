@@ -1,0 +1,36 @@
+:host {
+  display: grid;
+  place-items: center;
+}
+.name-sculpture {
+  margin: 0;
+  color: #171717;
+  // Fit the denser 84 × 54 character grid into the reference branch’s 340px ring.
+  font: 400 1.72cqw/1.08 'Courier New', monospace;
+  white-space: pre;
+  user-select: none;
+}
+.name-sculpture {
+  position: relative;
+  z-index: 1;
+}
+:host ::ng-deep .name-sculpture .ring-far {
+  color: #b5b5b5;
+  font-weight: 400;
+}
+:host ::ng-deep .name-sculpture .ring-soft {
+  color: #8a8a8a;
+  font-weight: 400;
+}
+:host ::ng-deep .name-sculpture .ring-mid {
+  color: #595959;
+  font-weight: 400;
+}
+:host ::ng-deep .name-sculpture .ring-front {
+  color: #303030;
+  font-weight: 600;
+}
+:host ::ng-deep .name-sculpture .ring-near {
+  color: #111;
+  font-weight: 700;
+}

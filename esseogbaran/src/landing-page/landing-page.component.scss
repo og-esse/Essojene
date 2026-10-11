@@ -5,11 +5,10 @@
 .name-pattern { color: #171717; opacity: .055; font: italic 13px/1.5 'Courier New', monospace; white-space: nowrap; }
 .name-pattern div:nth-child(even) { transform: translateX(-3rem); }
 .hero-content { position: relative; width: min(100% - 3rem, 1152px); padding-block: 5rem; }
-.hero-intro { position: relative; min-height: 430px; display: flex; align-items: center; margin-bottom: 3rem; }
-.hero-intro > :first-child { position: relative; z-index: 1; width: 56%; }
+.hero-intro { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 340px; align-items: center; gap: 2rem; margin-bottom: 2rem; }
+.hero-intro > :first-child { position: relative; z-index: 1; min-width: 0; }
 .hero-linkedin { color: #525252; font-size: .875rem; }
-.name-ring { position: absolute; right: -5rem; top: 50%; transform: translateY(-50%); width: clamp(440px, 44vw, 580px); aspect-ratio: 1; display: grid; place-items: center; container-type: inline-size; pointer-events: none; }
-.name-sculpture { margin: 0; color: #171717; font: 400 1.95cqw/1.08 'Courier New', monospace; white-space: pre; user-select: none; }
+.name-ring { position: relative; width: 100%; aspect-ratio: 1; display: grid; place-items: center; container-type: inline-size; pointer-events: none; }
 .eyebrow { display: inline-block; padding: .25rem .75rem; border-radius: 999px; background: #f5f5f5; color: #525252; font-size: .875rem; font-weight: 500; margin-bottom: 1rem; }
 h1 { max-width: 900px; font-size: clamp(3rem, 6.3vw, 4.5rem); font-weight: 700; letter-spacing: -.045em; line-height: 1.04; text-wrap: balance; margin-bottom: 1.25rem; }
 .hero-copy { max-width: 760px; color: var(--muted); font-size: clamp(1.2rem, 2.2vw, 1.5rem); line-height: 1.5; text-wrap: balance; margin-bottom: 2rem; }
@@ -51,7 +50,7 @@ h1 { max-width: 900px; font-size: clamp(3rem, 6.3vw, 4.5rem); font-weight: 700; 
 @keyframes marquee { to { transform: translateX(-50%); } }
 @media (max-width: 767px) {
   .hero-intro { grid-template-columns: 1fr; gap: 1rem; }
-  .name-ring { justify-self: center; }
+  .name-ring { width: min(100%, 340px); justify-self: center; }
   .hero-content { padding-block: 3.5rem; }
   .section, .contact-panel { padding-block: 5rem; }
   .expertise-grid, .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -70,20 +69,5 @@ h1 { max-width: 900px; font-size: clamp(3rem, 6.3vw, 4.5rem); font-weight: 700; 
 .hero-meta { color: var(--muted); font-size: .875rem; margin-bottom: 1.5rem; }
 .hero-meta span { margin-inline: .5rem; }
 
-.name-sculpture { position: relative; z-index: 1; }
 .name-ring::after { content: ''; position: absolute; left: 18%; bottom: 1%; width: 64%; height: 5%; border-radius: 50%; background: radial-gradient(ellipse, rgba(23, 23, 23, .16), transparent 70%); filter: blur(8px); }
-:host ::ng-deep .name-sculpture .ring-far { color: #b5b5b5; font-weight: 400; }
-:host ::ng-deep .name-sculpture .ring-soft { color: #8a8a8a; font-weight: 400; }
-:host ::ng-deep .name-sculpture .ring-mid { color: #595959; font-weight: 400; }
-:host ::ng-deep .name-sculpture .ring-front { color: #303030; font-weight: 600; }
-:host ::ng-deep .name-sculpture .ring-near { color: #111; font-weight: 700; }
-@media (max-width: 1023px) {
-  .hero-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: auto; gap: 1.5rem; }
-  .hero-intro > :first-child { width: auto; }
-  .name-ring { position: relative; right: auto; top: auto; transform: none; width: 100%; }
-}
-@media (max-width: 767px) {
-  .hero-intro { grid-template-columns: 1fr; }
-  .name-ring { width: min(100%, 440px); }
-}
 @media (max-width: 540px) { .hero-content { width: calc(100% - 2rem); } }
