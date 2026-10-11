@@ -7,18 +7,18 @@
 .back-link {
   display: inline-flex;
   margin-bottom: 1.5rem;
-  color: #2563eb;
+  color: #171717;
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
 }
 
 .case-hero {
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e5e5e5;
   padding-bottom: 2rem;
 
   .eyebrow {
-    color: #2563eb;
+    color: #171717;
     font-size: 0.8rem;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -27,14 +27,14 @@
   }
 
   h1 {
-    color: #0f172a;
+    color: #171717;
     font-size: clamp(2.4rem, 6vw, 4.5rem);
     line-height: 1;
     margin: 0 0 1rem;
   }
 
   p {
-    color: #475569;
+    color: #525252;
     font-size: 1.1rem;
     line-height: 1.75;
     margin: 0;
@@ -46,7 +46,7 @@
   margin-top: 1.5rem;
 
   a {
-    background: #2563eb;
+    background: #171717;
     border-radius: 8px;
     color: #fff;
     display: inline-flex;
@@ -68,13 +68,13 @@
 }
 
 h2 {
-  color: #0f172a;
+  color: #171717;
   font-size: 1.2rem;
   margin: 0 0 1rem;
 }
 
 .check-list {
-  color: #334155;
+  color: #525252;
   display: grid;
   gap: 0.75rem;
   line-height: 1.6;
@@ -82,7 +82,7 @@ h2 {
   padding-left: 1.2rem;
 
   li::marker {
-    color: #2563eb;
+    color: #171717;
   }
 }
 
@@ -92,10 +92,10 @@ h2 {
   gap: 0.5rem;
 
   span {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
+    background: #f5f5f5;
+    border: 1px solid #e5e5e5;
     border-radius: 6px;
-    color: #1d4ed8;
+    color: #404040;
     font-size: 0.8rem;
     font-weight: 700;
     padding: 0.4rem 0.55rem;
@@ -104,7 +104,7 @@ h2 {
 
 .architecture,
 .proof {
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid #e5e5e5;
   margin-top: 2rem;
   padding-top: 2rem;
 }
@@ -119,10 +119,10 @@ h2 {
   }
 
   span {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
     border-radius: 8px;
-    color: #0f172a;
+    color: #171717;
     font-size: 0.9rem;
     font-weight: 800;
     padding: 0.85rem;
@@ -131,9 +131,9 @@ h2 {
 }
 
 pre {
-  background: #0f172a;
+  background: #171717;
   border-radius: 8px;
-  color: #e2e8f0;
+  color: #e5e5e5;
   font-size: 0.9rem;
   line-height: 1.6;
   margin: 0;
@@ -143,34 +143,34 @@ pre {
 
 :host-context(.dark) {
   .case-hero {
-    border-color: #334155;
+    border-color: #525252;
 
     h1 {
-      color: #f8fafc;
+      color: #fafafa;
     }
 
     p {
-      color: #cbd5e1;
+      color: #d4d4d4;
     }
   }
 
   h2 {
-    color: #f8fafc;
+    color: #fafafa;
   }
 
   .check-list {
-    color: #cbd5e1;
+    color: #d4d4d4;
   }
 
   .architecture,
   .proof {
-    border-color: #334155;
+    border-color: #525252;
   }
 
   .flow span {
-    background: #111827;
-    border-color: #334155;
-    color: #e2e8f0;
+    background: #181818;
+    border-color: #525252;
+    color: #e5e5e5;
   }
 }
 

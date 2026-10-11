@@ -64,19 +64,19 @@
   justify-content: center;
   width: fit-content;
   padding: 0.55rem 0.95rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid #d5d5d5;
   border-radius: 999px;
   background: #ffffff;
-  color: #374151;
+  color: #404040;
   text-decoration: none;
   font-weight: 600;
   cursor: pointer;
 }
 
 .nav-link--back {
-  background: #111827;
-  color: #f9fafb;
-  border-color: #111827;
+  background: #181818;
+  color: #fafafa;
+  border-color: #181818;
 }
 
 .nav-link:hover {
@@ -101,18 +101,18 @@
 .escalate-button {
   padding: 10px 14px;
   border-radius: 999px;
-  border: 1px solid #d1d5db;
-  background: #fff7ed;
-  color: #9a3412;
+  border: 1px solid #d5d5d5;
+  background: #f8f8f8;
+  color: #474747;
   font-weight: 600;
   cursor: pointer;
   transition: transform 120ms ease, background 120ms ease;
 }
 
 .escalate-button {
-  background: #111827;
-  color: #f9fafb;
-  border-color: #111827;
+  background: #181818;
+  color: #fafafa;
+  border-color: #181818;
 }
 
 .quick-action:hover,
@@ -146,14 +146,14 @@
 }
 
 .message.user {
-  background: #2563eb;
+  background: #606060;
   color: white;
   margin-left: auto;
 }
 
 .message.assistant {
-  background: #1f2937;
-  color: #e5e7eb;
+  background: #282828;
+  color: #e7e7e7;
 }
 
 .input-bar {

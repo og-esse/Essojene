@@ -1,262 +1,43 @@
-/* Hero Section (Landing + About Combined) */
-.hero-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5rem 1rem;
-  min-height: 100vh;
-  text-align: center;
-  background: var(--page-bg);
-.name {
-  display: block;
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #64748b; /* muted slate */
-  margin-bottom: 0.35rem;
-  letter-spacing: 0.02em;
+
+:host { display: block; }
+.hero-section { overflow: hidden; background: #fff; }
+.content { width: min(100% - 3rem, 976px); margin-inline: auto; }
+.hero-stage { position: relative; padding-block: 4.5rem; min-height: 100svh; display: flex; align-items: center; }
+.hero-glow { left: calc((976px - 100vw) / 2); right: calc((976px - 100vw) / 2); }
+.hero-intro { position: relative; width: 100%; }
+.name { display: inline-block; margin-bottom: 1rem; padding: .25rem .75rem; border-radius: 999px; background: #f5f5f5; color: #525252; font-size: .875rem; font-weight: 500; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: .75rem; color: var(--muted); margin-block: 1.5rem 2rem; }
+.meta-pill { font-size: .875rem; }
+.meta-separator { border-left: 1px solid var(--border); }
+.buttons { display: flex; flex-wrap: wrap; gap: .75rem; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .75rem 1.25rem; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; background: #fff; transition: transform .2s, background .2s; }
+.btn:hover { transform: translateY(-2px); background: #f5f5f5; }
+.btn.primary { color: #fff; background: #171717; border-color: #171717; }
+.btn.primary:hover { background: #303030; }
+.about-content { border-top: 1px solid var(--border); padding-block: 5rem 6rem; }
+.about-content h2 { font-size: clamp(2.25rem, 4.5vw, 3rem); letter-spacing: -.04em; margin-bottom: 2rem; }
+.about-content > p { max-width: 760px; color: var(--muted); font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.about-content a { text-decoration: underline; text-underline-offset: 4px; }
+.little-known-fact { max-width: 760px; padding: 1.5rem; margin-top: 2.5rem; border: 1px solid var(--border); border-radius: 8px; background: #fafafa; }
+.little-known-fact h3 { font-size: 1.125rem; margin-bottom: .75rem; }
+.little-known-fact p { color: var(--muted); margin-bottom: 0; }
+.hero-glow { position: absolute; inset: 0; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 72% 38%, rgba(0, 0, 0, .035), transparent 38%); }
+.name-pattern { color: #171717; opacity: .035; font: italic 13px/1.5 'Courier New', monospace; white-space: nowrap; }
+.name-pattern div:nth-child(even) { transform: translateX(-3rem); }
+.hero-intro { display: grid; grid-template-columns: minmax(0, 1fr) 340px; align-items: center; gap: 2rem; margin-bottom: 2rem; }
+.name-ring { width: 100%; aspect-ratio: 1; display: grid; place-items: center; container-type: inline-size; }
+.name-sculpture { margin: 0; color: #171717; font: 500 clamp(8px, 2.8cqw, 10px)/1 'Courier New', monospace; white-space: pre; user-select: none; }
+h1 { max-width: 900px; font-size: clamp(3rem, 6.3vw, 4.5rem); font-weight: 700; letter-spacing: -.045em; line-height: 1.04; text-wrap: balance; margin-bottom: 1.25rem; }
+@media (max-width: 1023px) { .hero-glow { left: -1.5rem; right: -1.5rem; } }
+@media (max-width: 767px) {
+ .hero-stage { padding-block: 3rem; }
+ .hero-intro { grid-template-columns: 1fr; gap: 2rem; }
+ .name-ring { width: min(100%, 340px); justify-self: center; }
+ .about-content { padding-block: 3rem 4rem; }
 }
-
-  .content {
-    max-width: 800px;
-    text-align: center;
-    color: var(--ink);
-  }
-
-  .title {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-.subtitle {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: var(--muted);
-  margin-bottom: 1.25rem;
-  max-width: 640px;
-}
-
-
-  /* Recruiter-friendly meta strip */
-.hero-meta {
-  margin-top: 0.75rem;
-  margin-bottom: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-}
-
-.meta-pill {
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  background: #ffffff;                 /* pure white for contrast */
-  border: 1px solid #d1d5db;           /* gives structure */
-  color: #374151;                      /* darker text for readability */
-  display: inline-flex;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-  white-space: nowrap;
-  font-weight: 500;
-}
-
-.meta-separator {
-  width: 1px;
-  height: 20px;
-  background: #cbd5e1;                 /* more visible */
-  margin: 0 0.25rem;
-}
-
-
-  .buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.25rem;
-    margin-bottom: 3rem;
-  }
-
-  .btn {
-    padding: 0.85rem 1.75rem;
-    border-radius: 0.75rem;
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .btn.primary {
-    background-color: var(--accent);
-    color: #fff;
-
-    &:hover {
-      background-color: var(--accent-hover);
-      box-shadow: 0 6px 14px var(--shadow);
-      transform: translateY(-2px);
-    }
-  }
-
-  .btn.secondary {
-    background-color: transparent;
-    border: 2px solid var(--accent);
-    color: var(--accent);
-
-    &:hover {
-      background-color: var(--accent-soft);
-      border-color: var(--accent-hover);
-      color: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.1);
-    }
-  }
-
-  .btn:not(.primary):not(.secondary) {
-    background-color: var(--surface-subtle);
-    color: var(--ink);
-    border: 2px solid var(--border);
-
-    &:hover {
-      background-color: var(--accent-soft);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(30, 58, 138, 0.1);
-    }
-  }
-
-  /* About Content Inside Hero */
-  .about-content {
-    text-align: left;
-    margin-top: 2rem;
-
-    h2 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: var(--deep);
-    }
-
-    p {
-      margin-bottom: 1.25rem;
-      line-height: 1.7;
-      font-size: 1.05rem;
-    }
-  }
-
-  .little-known-fact {
-    margin-top: 2rem;
-    background: var(--accent-soft);
-    border: 1px solid var(--accent-border);
-    border-left: 5px solid var(--accent);
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    font-style: italic;
-    color: var(--ink);
-    box-shadow: 0 8px 24px var(--shadow);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-
-    h3 {
-      font-weight: 700;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.75rem;
-      color: var(--accent-hover);
-    }
-
-    .icon {
-      font-size: 1.75rem;
-      user-select: none;
-    }
-
-    p {
-      font-style: italic;
-      font-size: 1.1rem;
-      line-height: 1.5;
-      margin-bottom: 0;
-    }
-  }
-
-  /* Responsive Tweaks */
-  @media (max-width: 768px) {
-    padding: 3.5rem 1.25rem;
-    min-height: auto;
-
-    .title {
-      font-size: 2.25rem;
-    }
-
-    .subtitle {
-      font-size: 1rem;
-    }
-
-    .about-content h2 {
-      font-size: 1.75rem;
-    }
-
-    .about-content p {
-      font-size: 1rem;
-    }
-
-    .hero-meta {
-      justify-content: center;
-    }
-  }
-}
-
-/* Dark mode tweaks */
-:host-context(.dark) {
-  .hero-section {
-    background: var(--page-bg);
-
-    .content {
-      color: #e5e7eb;
-    }
-
-    .subtitle {
-      color: #9ca3af;
-    }
-
-    .hero-meta {
-      color: #d1d5db;
-    }
-  .meta-pill {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #e5e7eb;
-    box-shadow: none;
-  }
-
-
-    .meta-separator {
-      background: rgba(255, 255, 255, 0.14);
-    }
-
-    .about-content h2 {
-      color: var(--accent);
-    }
-
-    .about-content p {
-      color: #e5e7eb;
-    }
-
-    .little-known-fact {
-      background: var(--accent-soft);
-      border-color: var(--accent-border);
-      border-left-color: var(--accent);
-      color: var(--ink);
-
-      h3 {
-        color: var(--accent);
-      }
-    }
-  }
+@media (max-width: 540px) {
+ .content { width: calc(100% - 2rem); }
+ .buttons { flex-direction: column; }
+ .hero-meta { flex-direction: column; }
+ .meta-separator { display: none; }
 }
