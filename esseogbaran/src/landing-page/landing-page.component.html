@@ -1,126 +1,65 @@
-<section class="hero-section">
-  <div class="content">
-    <span class="name">Esse Ogbaran</span>
-
-    <h1 class="title">
-      Senior Software Engineer
-      <span>Applied AI, Machine Learning &amp; Financial Technology</span>
-    </h1>
-    <p class="subtitle">
-      I turn emerging AI capabilities into reliable, usable tools for financial
-      teams—combining rapid Python prototyping, rigorous evaluation, and
-      production engineering.
-    </p>
-
-    <div class="hero-meta">
-      <span class="meta-pill">📍 Relocating to London, UK</span>
-      <span class="meta-separator" aria-hidden="true"></span>
-      <span class="meta-pill">🇮🇪 Irish Passport (UK Right to Work)</span>
-      <!-- <span class="meta-separator" aria-hidden="true"></span> -->
-      <!-- <span class="meta-pill">🧑‍💻 Full Stack · Resilience · AI</span> -->
+<main class="landing-page">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-glow" aria-hidden="true"><div class="name-pattern">
+      @for (row of patternRows; track row) {
+        <div>ESSÉ essé OGBARAN ogbaran ESSÉ essé OGBARAN ogbaran ESSÉ essé OGBARAN ogbaran ESSÉ essé OGBARAN ogbaran ESSÉ essé OGBARAN ogbaran ESSÉ essé OGBARAN ogbaran</div>
+      }
+    </div></div>
+    <div class="container hero-content">
+      <div class="hero-intro">
+      <div>
+      <p class="eyebrow reveal r1">Welcome to my portfolio</p>
+      <h1 id="hero-title" class="reveal r2">Senior Software Engineer</h1>
+      <p class="hero-copy reveal r3">Building dependable products at the intersection of applied AI, machine learning, and financial technology.</p>
+      <div class="hero-actions reveal r4">
+        <a routerLink="/portfolio" class="button button--dark">View my work <span aria-hidden="true">&rarr;</span></a>
+        <a href="mailto:ogbarane@gmail.com" class="button button--light">Get in touch</a>
+      </div>
+      <a class="hero-linkedin text-link" href="https://www.linkedin.com/in/ess%C3%A9-ogbaran/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="name-ring" aria-hidden="true">
+        <pre #nameSculpture class="name-sculpture"></pre>
+      </div>
+      </div>
+      <dl class="stats reveal r5" aria-label="Career highlights">
+        <div><dt>40%</dt><dd>Faster development cycles with AI-assisted workflows</dd></div>
+        <div><dt>40 engineers</dt><dd>Supported with AI coding and evaluation practices</dd></div>
+        <div><dt>49.3%</dt><dd>Expected P&amp;L uplift in synthetic FX backtests</dd></div>
+      </dl>
     </div>
-    <div class="buttons">
-      <a routerLink="/portfolio" class="btn primary">View Projects</a>
-      <a routerLink="/experience" class="btn secondary">View Experience</a>
-      <a href="mailto:ogbarane@gmail.com" class="btn">Contact Me</a>
+  </section>
+
+  <div class="marquee" aria-label="Areas of practice"><div class="marquee-track">
+    <span>Applied AI <i>/</i></span><span>Full Stack <i>/</i></span><span>Machine Learning <i>/</i></span><span>FinTech <i>/</i></span><span>Product Engineering <i>/</i></span><span>Creative Technology <i>/</i></span>
+    <span aria-hidden="true">Applied AI <i>/</i></span><span aria-hidden="true">Full Stack <i>/</i></span><span aria-hidden="true">Machine Learning <i>/</i></span><span aria-hidden="true">FinTech <i>/</i></span><span aria-hidden="true">Product Engineering <i>/</i></span><span aria-hidden="true">Creative Technology <i>/</i></span>
+  </div></div>
+
+  <section class="section section--muted" aria-labelledby="work-title"><div class="container">
+    <div class="section-heading"><div><p class="section-label">Selected projects</p><h2 id="work-title">Featured Work</h2></div><p>Practical systems built to make complex decisions clearer, faster, and more trustworthy.</p></div>
+    <div class="project-grid">
+      <a routerLink="/projects/automated-fx-pricing-engine" class="project-card"><div><span class="project-number">01</span><h3>Automated FX Pricing Engine</h3><p>ML-assisted spread optimization balancing fill probability, expected P&amp;L, and adverse selection.</p></div><div class="tags"><span>Python</span><span>ML</span><span>FastAPI</span></div></a>
+      <a routerLink="/projects/mcp-model-serving-poc" class="project-card"><div><span class="project-number">02</span><h3>MCP Model Serving POC</h3><p>A versioned churn-risk service with typed contracts, API-key authentication, and an MCP tool.</p></div><div class="tags"><span>Python</span><span>MCP</span><span>FastAPI</span></div></a>
+      <a href="https://cyk.life" target="_blank" rel="noopener noreferrer" class="project-card"><div><span class="project-number">03</span><h3>CYK Digital World</h3><p>An expressive lifestyle platform connecting content, community experiments, and commerce.</p></div><div class="tags"><span>Angular</span><span>Supabase</span><span>Creative Tech</span></div></a>
+      <a routerLink="/assistant" class="project-card"><div><span class="project-number">04</span><h3>AI Support Assistant</h3><p>An IT support chatbot with guided troubleshooting, escalation, and OpenAI-powered responses.</p></div><div class="tags"><span>OpenAI API</span><span>Angular</span><span>Node.js</span></div></a>
     </div>
+    <a routerLink="/portfolio" class="text-link">View all projects <span aria-hidden="true">&rarr;</span></a>
+  </div></section>
 
-    <section class="proof-grid" aria-label="Career highlights">
-      <article>
-        <strong>40%</strong>
-        <span>faster development cycles through AI-assisted workflows</span>
-      </article>
-      <article>
-        <strong>40 engineers</strong>
-        <span>supported with AI coding standards and evaluation practices</span>
-      </article>
-      <article>
-        <strong>49.3%</strong>
-        <span>synthetic expected-P&amp;L uplift in FX pricing backtests</span>
-      </article>
-    </section>
-
-    <div class="about-content">
-      <h2>About Me</h2>
-
-      <p>
-        I'm currently a Senior Software Engineer at RBC and a creative
-        technologist who loves problem solving. I enjoy figuring out how things
-        work, turning complex problems into simple experiences, and seeing
-        something I've built make an impact in the real world.
-      </p>
-
-      <p>
-        My journey started at Wilfrid Laurier University, where I studied
-        Computer Science and helped build a connected glove that combined
-        communication, warmth, and contactless payments. The project won
-        multiple awards at a fashion tech hackathon, and I think that experience
-        shaped how I approach technology today: a mix of curiosity, creativity,
-        and practicality.
-      </p>
-
-      <p>
-        At RBC, I've worked on financial applications used by thousands of
-        customers, from mortgage renewals to investment account journeys and
-        tax-savings tools. My work spans frontend, backend, and platform
-        engineering, including API development, service integrations, and
-        debugging complex systems. I've also helped bring AI-assisted
-        development into engineering workflows and participated in early
-        evaluations of GitHub Copilot and Amazon CodeWhisperer.
-      </p>
-
-      <p>
-        What keeps me going is the unknown. A problem I haven't solved before, a
-        system behaving in a way I don't understand, or an idea I don't quite
-        know how to build yet. I love digging through logs, tracing requests,
-        and chasing the "why" until something clicks.
-      </p>
-
-      <p>
-        AI has completely changed how I explore that curiosity. Tools like Codex
-        have become my coding partners, helping me learn things outside my usual
-        expertise, experiment faster, and turn ideas into working products. I've
-        been exploring Python and machine learning through projects like an FX
-        pricing engine and an MCP model-serving prototype. I'm just as
-        interested in understanding why models work, where they fail, and
-        whether their outputs can be trusted as I am in what they can build.
-      </p>
-
-      <p>
-        Outside of RBC, I run creative brands called
-        <strong>JNWRLD</strong> and <strong>CYK</strong>, where I explore
-        identity, fashion, storytelling, and interactive technology. They've
-        become my playground for experimenting with ideas and building things
-        end to end. You can find them at
-        <a href="https://jnwrld.com/" target="_blank" rel="noopener noreferrer"
-          >jnwrld.com</a
-        >
-        and
-        <a href="https://cyk.life/" target="_blank" rel="noopener noreferrer"
-          >cyk.life</a
-        >.
-      </p>
-
-      <p>
-        I'm also a serial hobby collector. Last year I taught myself how to sew,
-        DJ, and roller skate; this year it's shaders, game engines, and whatever
-        else catches my attention. Whether it's technology or something
-        completely unrelated, I tend to go deep once I'm curious.
-      </p>
-
-      <p>
-        Ultimately, I want to keep working on problems that challenge me,
-        combining engineering fundamentals, AI, investigation, and creativity
-        to build things that are genuinely useful.
-      </p>
-
-      <aside class="little-known-fact">
-        <h3><span class="icon" aria-hidden="true">🧩</span> Little Known Fact</h3>
-        <p>
-          I love solving puzzles and brain teasers. I actually play Sudoku while
-          walking on the treadmill—multitasking is my default state.
-        </p>
-      </aside>
+  <section class="section" aria-labelledby="expertise-title"><div class="container">
+    <div class="section-heading simple"><div><p class="section-label">What I do</p><h2 id="expertise-title">Key Expertise</h2></div></div>
+    <div class="expertise-grid">
+      <article><span class="icon-box" aria-hidden="true">&lt;/&gt;</span><h3>Product Engineering</h3><p>End-to-end web products across Angular, React, Node.js, Spring Boot, APIs, and design systems.</p></article>
+      <article><span class="icon-box" aria-hidden="true">AI</span><h3>Applied AI &amp; ML</h3><p>Evaluation-minded AI workflows, predictive models, agent tooling, and reliable model serving.</p></article>
+      <article><span class="icon-box" aria-hidden="true">FX</span><h3>Financial Technology</h3><p>Customer-facing financial journeys and decision tools shaped for security, clarity, and scale.</p></article>
     </div>
-  </div>
-</section>
+  </div></section>
+
+  <section class="about section section--muted" id="about" aria-labelledby="about-title"><div class="container about-grid">
+    <div><p class="section-label">About me</p><h2 id="about-title">Curious by nature.<br />Practical by design.</h2></div>
+    <div class="about-copy"><p>I’m a Senior Software Engineer at RBC and a creative technologist who enjoys turning complicated systems into clear, useful experiences. My work spans frontend, backend, platform engineering, and the thoughtful use of AI in real development workflows.</p><p>Outside enterprise engineering, I build creative brands and interactive projects through <a href="https://jnwrld.com/" target="_blank" rel="noopener noreferrer">JNWRLD</a> and <a href="https://cyk.life/" target="_blank" rel="noopener noreferrer">CYK</a>. They are my space for exploring fashion, identity, storytelling, and emerging technology.</p><a routerLink="/experience" class="text-link">Explore my experience <span aria-hidden="true">&rarr;</span></a></div>
+  </div></section>
+
+  <section class="contact-panel" id="contact" aria-labelledby="contact-title"><div class="container contact-inner">
+    <p class="section-label section-label--dark">Have a problem worth solving?</p><h2 id="contact-title">Let’s build something useful.</h2><p>I’m relocating to London and open to thoughtful engineering opportunities and collaborations.</p><a href="mailto:ogbarane@gmail.com" class="button button--white">Contact me <span aria-hidden="true">&rarr;</span></a>
+  </div></section>
+</main>

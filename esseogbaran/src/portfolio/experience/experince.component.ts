@@ -49,7 +49,7 @@ export class ExperienceSectionComponent {
     {
       role: 'Founding AI Engineer',
       company: 'CYK.LIFE',
-      duration: 'January 2026 – Present',
+      duration: 'January 2024 – Present',
       description: [
         'Built and launched two production commerce platforms, owning architecture, integrations, and deployment end to end.',
         'Integrated Codex into prototyping, implementation, testing, and documentation workflows, reducing development delivery time by 80% while retaining manual production validation.',
