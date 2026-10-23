@@ -167,9 +167,23 @@ export class PortfolioSectionComponent {
     {
       title: 'Investment Account Discovery Assistant',
       description:
-        'Built an assisted-discovery experience to help users choose the right investment account type, using prompt-engineering concepts to guide decision-making in a clearer, more personalized flow. Led the frontend delivery for the initiative, earned a promotion during the work, and shipped the project ahead of schedule.',
+        'Built an assisted-discovery experience that guides clients through investment-account selection with questionnaires and personalized recommendations. Led frontend delivery ahead of schedule, added funnel analytics and unit coverage, and improved screen-reader labels and navigation focus across the journey.',
       link: '',
       tags: ['Angular', 'React', 'TypeScript', 'REST API'],
+    },
+    {
+      title: 'Investment Analytics & Consent Events',
+      description:
+        'Designed asynchronous Kafka/ESS publishers for account-selection, discovery, consent, and client-review events across eligibility and investment-document services. Paired reusable event builders and environment-specific topic/schema configuration with 15+ frontend analytics events, giving stakeholders visibility from UI interactions to backend events while protecting client-flow performance from Kafka latency.',
+      link: '',
+      tags: ['Java', 'Spring Boot', 'Kafka', 'Google Analytics', 'TypeScript'],
+    },
+    {
+      title: 'Investment Platform Security & Reliability',
+      description:
+        'Implemented HashiCorp Vault secrets management across embedded-advice, eligibility, and document services and patched vulnerable dependencies. Expanded onboarding and webhook test coverage, fixed returning-user state defects, and improved mobile accessibility through screen-reader labels, navigation focus, and benefits-drawer focus and swipe fixes.',
+      link: '',
+      tags: ['Spring Boot', 'HashiCorp Vault', 'Security', 'Accessibility', 'Testing'],
     },
     {
       title: 'Investments Menu Rebuild',
