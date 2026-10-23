@@ -165,6 +165,13 @@ export class PortfolioSectionComponent {
       tags: ['Angular', 'React', 'Spring Boot', 'REST API', 'Highcharts'],
     },
     {
+      title: 'Prism Theme Migration & Investment Platform Modernization',
+      description:
+        'Migrated the mutual fund web application to the Prism theme, replaced raw CSS variable tokens with RIG SCSS helpers, and standardized CSS-variable styling across multiple investment applications. Led Angular, Nx, and RIG design-system upgrades and extracted reusable questionnaire, recommendation-results, and shared component libraries, reducing duplication across squads and helping subsequent features ship in days rather than weeks.',
+      link: '',
+      tags: ['Angular', 'Nx', 'Prism', 'SCSS', 'CSS Variables', 'Design System'],
+    },
+    {
       title: 'Investment Account Discovery Assistant',
       description:
         'Built an assisted-discovery experience that guides clients through investment-account selection with questionnaires and personalized recommendations. Led frontend delivery ahead of schedule, added funnel analytics and unit coverage, and improved screen-reader labels and navigation focus across the journey.',
